@@ -13,8 +13,6 @@
 		timer: document.querySelector('.iTimer__timer'),
 	}
 	
-	var iTimerType = "1";
-	
 	//help
 	els.openHelp.addEventListener('click', () => {
 		alert('Помощь будет добавлена в скором времени!');
@@ -25,23 +23,22 @@
 		alert('В данный момент настройки недоступны.');
 	});
 	
-	//select type iTimer	
+	//select type iTimer
+	selectType(localStorage.iTimerType || 'stopwatch');
+	
 	els.selectStopwatch.addEventListener('click', () => {
-		open
+		selectType('stopwatch');
 	});
 	
 	els.selectTimer.addEventListener('click', () => {
-		
+		selectType('timer');
 	});
 	
-	function selectStopwatch() {
-		els.iTimer.classList.remove('iTimer-timer');
-		els.iTimer.classList.add('iTimer-stopwatch');
-	}
-	
-	function selectTimer() {
-		els.iTimer.classList.remove('iTimer-stopwatch');
-		els.iTimer.classList.add('iTimer-timer');
+	function selectType(type) {
+		els.iTimer.classList.remove(`iTimer-${localStorage.iTimerType}`);
+		els.iTimer.classList.add(`iTimer-${type}`);
+		
+		localStorage.iTimerType = type;
 	}
 	
 }(jQuery));
