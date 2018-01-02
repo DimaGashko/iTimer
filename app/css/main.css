@@ -87,7 +87,7 @@ body {
 
 .main__container {
 	background: #fff;
-	min-height: 250px;
+	min-height: 450px;
 	position: relative;
 }
 
@@ -96,7 +96,7 @@ body {
 	display: block;
 }
 
-.iTimer-stopwatch .iTimer__setStopwatch {
+.iTimer-stopwatch .iTimer__selectStopwatch {
 	font-weight: bold;
 }
 
@@ -104,7 +104,7 @@ body {
 	display: block;
 }
 
-.iTimer-timer .iTimer__setTimer {
+.iTimer-timer .iTimer__selectTimer {
 	font-weight: bold;
 }
 
@@ -134,17 +134,17 @@ body {
 	background: -webkit-linear-gradient(bottom,#eee,#999);
 }
 
-.iTimer__setTimer,
-.iTimer__setStopwatch {
+.iTimer__selectTimer,
+.iTimer__selectStopwatch {
 	position: absolute;
 	top: 10px;
 }
 
-.iTimer__setStopwatch {
+.iTimer__selectStopwatch {
 	left: 10px;
 }
 
-.iTimer__setTimer {
+.iTimer__selectTimer {
 	right: 10px;
 }
 
@@ -224,7 +224,7 @@ body {
 	text-align: left;
 }
 
-.timer {
+.iTimer__timer {
 	display: none;
 }
 /* FOOTER */

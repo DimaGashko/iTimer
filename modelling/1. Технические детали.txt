@@ -41,17 +41,21 @@
 ==================================================
 Архитектура
 
-*Общие моменты:
-
-*JS:
-
-
 *HTML
 	header
 		logo
 	main
 		timer
+			stopwatch
+			timer
 	footer
 		descriotions
 		contacts
+	
+	
+*JS:
+	main
+	_iTimer
+	Stopwatch
+	Timer
 	
