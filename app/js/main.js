@@ -13,6 +13,8 @@
 		timer: document.querySelector('.iTimer__timer'),
 	}
 	
+	var iTimerType = "1";
+	
 	//help
 	els.openHelp.addEventListener('click', () => {
 		alert('Помощь будет добавлена в скором времени!');
@@ -25,13 +27,21 @@
 	
 	//select type iTimer	
 	els.selectStopwatch.addEventListener('click', () => {
-		els.iTimer.classList.remove('iTimer-timer');
-		els.iTimer.classList.add('iTimer-stopwatch');
+		open
 	});
 	
 	els.selectTimer.addEventListener('click', () => {
+		
+	});
+	
+	function selectStopwatch() {
+		els.iTimer.classList.remove('iTimer-timer');
+		els.iTimer.classList.add('iTimer-stopwatch');
+	}
+	
+	function selectTimer() {
 		els.iTimer.classList.remove('iTimer-stopwatch');
 		els.iTimer.classList.add('iTimer-timer');
-	});
+	}
 	
 }(jQuery));
