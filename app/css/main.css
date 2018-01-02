@@ -1,8 +1,233 @@
-﻿html, body {
+﻿/* BASE */
+html, body {
 	height: 100%;
 }
 
 body {
+	background: #333;
+	color: #666;
+}
+
+.wrapper {
 	
 }
 
+.container {
+	max-width: 940px;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+.section {
+	margin: 0;
+}
+
+/* HEADER */
+.header {
+	
+}
+
+.header__container {
+	position: relative;
+	background: #aaa;
+}
+
+.header__logo {
+	text-align: center;
+	font-size: 72px;
+	padding: 20px;
+	user-select: none;
+}
+
+.header__help,
+.header__set {
+	position: absolute;
+	top: 20px;
+	width: 32px;
+	height: 32px;
+	background-image: #333;
+	cursor: pointer;
+	transition: transform 0.3s;
+	border: none;
+	outline: none;
+	user-select: none;
+}
+
+.header__help:hover {
+	transform: rotate(-15deg);
+}
+
+.header__set:hover {
+	transform: rotate(15deg);
+}
+
+.header__help:focus {
+	transform: rotate(-30deg);
+}
+
+.header__set:focus {
+	transform: rotate(30deg);
+}
+
+.header__help {
+	left: 10px;
+	background: url(../img/icons/help.png);
+}
+
+.header__set {
+	right: 10px;
+	background: url(../img/icons/set.png);
+}
+
+
+/* MAIN */
+.main {
+	
+}
+
+.main__container {
+	background: #fff;
+	min-height: 250px;
+	position: relative;
+}
+
+/* iTimer */
+.iTimer-stopwatch .iTimer__stopwatch {
+	display: block;
+}
+
+.iTimer-stopwatch .iTimer__setStopwatch {
+	font-weight: bold;
+}
+
+.iTimer-timer .iTimer__timer {
+	display: block;
+}
+
+.iTimer-timer .iTimer__setTimer {
+	font-weight: bold;
+}
+
+.iTimer__but {
+	padding: 5px 15px;
+	color: #444;
+	font-family: "Times New Roman";
+	background: #dddddd; 
+	background: -webkit-linear-gradient(top,#eee,#999);
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.iTimer__but:focus {
+	box-shadow: 0 2px 6px #ddd;
+	outline: none;
+}
+
+.iTimer__but:hover {
+	color: #666;
+}
+
+.iTimer__but:active {
+	background: #dddddd; 
+	background: -webkit-linear-gradient(bottom,#eee,#999);
+}
+
+.iTimer__setTimer,
+.iTimer__setStopwatch {
+	position: absolute;
+	top: 10px;
+}
+
+.iTimer__setStopwatch {
+	left: 10px;
+}
+
+.iTimer__setTimer {
+	right: 10px;
+}
+
+.iTimer__type {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.iTimer__time {
+	font-size: 0;
+}
+
+.iTimer__timecomp {
+	font-size: 72px;
+	margin-left: 5px;
+}
+
+.iTimer__timecomp:first-child {
+	margin-left: 0;
+}
+
+.iTimer__h,
+.iTimer__m,
+.iTimer__s {
+	width: 80px;
+}
+
+.iTimer__ms {
+	width: 110px;
+}
+
+.iTimer__timecomp:after {
+	margin-left: 5px;
+}
+
+.iTimer__h:after,
+.iTimer__m:after {
+	content: ':';
+}
+
+.iTimer__s:after {
+	content: '.';
+}
+
+.iTimer__time {
+	margin: 40px;
+}
+
+
+.iTimer__stopwatch {
+	display: none;
+}
+
+.iTimer__control {
+	display: none;
+	padding: 6px 0px;
+	margin-left: 10px;
+	text-align: center;
+	width: 150px;
+}
+
+.iTimer__control:first-child {
+	margin-left: 0;
+}
+
+.iTimer-paused .iTimer__reset,
+.iTimer-paused .iTimer__start {
+		display: inline-block;
+}
+
+.iTimer-running .iTimer__lap,
+.iTimer-running .iTimer__stop {
+		display: inline-block;
+}
+
+.iTimer__lapslist {
+	text-align: left;
+}
+
+.timer {
+	display: none;
+}
+/* FOOTER */
+.footer__container {
+	background: #aaa;
+}

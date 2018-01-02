@@ -17,7 +17,66 @@
 	
 	<body>
 		<div class="wrapper">
+			<header class="section header">
+				<div class="container header__container">
+					<div class="header__logo">iTimer</div>
+					<button class="header__help"></button>
+					<button class="header__set"></button>
+				</div>
+			</header>
 			
+			<section class="section main">
+				<div class="container main__container">
+				
+					<!-- iTimer -->
+					<div class="iTimer iTimer-stopwatch iTimer-paused">
+						<button class="iTimer__but iTimer__setStopwatch">Секундомер</button>
+						<button class="iTimer__but iTimer__setTimer">Таймер</button>
+						
+						<!-- stopwatch -->
+						<div class="iTimer__type iTimer__stopwatch">
+							<div class="iTimer__time stopwatch__time">
+								<span class="iTimer__timecomp iTimer__h">00</span>
+								<span class="iTimer__timecomp iTimer__m">00</span>
+								<span class="iTimer__timecomp iTimer__s">00</span>
+								<span class="iTimer__timecomp iTimer__ms">000</span>
+							</div>
+							<div class="iTimer__controls">
+								<div class="iTimer__controlsPaused">
+									<button class="iTimer__but iTimer__control iTimer__reset">Сброс (ctrl + R)</button>
+									<button class="iTimer__but iTimer__control iTimer__start">Старт (пробел)</button>
+								</div>
+								<div class="iTimer__controlsRunning">
+									<button class="iTimer__but iTimer__control iTimer__lap">Lap (ctrl + L)</button>
+									<button class="iTimer__but iTimer__control iTimer__stop">Стоп (пробел)</button>
+								</div>
+							</div>
+							<div class="iTimer__lapslist">
+								<ul>
+									<li class="iTimer__lap">Lap 5</li>
+									<li class="iTimer__lap">Lap 4</li>
+									<li class="iTimer__lap">Lap 3</li>
+									<li class="iTimer__lap">Lap 2</li>
+									<li class="iTimer__lap">Lap 1</li>
+								</ul>
+							</div>
+						</div>
+						
+						<!-- timer -->
+						<div class="iTimer__type timer">
+							timer
+						</div>
+					</div>
+					
+				</div>
+			</section>
+			
+			<footer class="section footer">
+				<div class="container footer__container">
+					<p class="footer__hint">Подсказка: если во время работы iTimer-а вы закроете страницу, просто откройте ее и его работа возобновится.</p>
+					<p>Разработчик: Контакт1, Контакт2, Контакт3</p>
+				</div>
+			</footer>			
 		</div>
 	</body>
 </html>
