@@ -1,4 +1,4 @@
-﻿;(function($){
+﻿;(function(){
 	"use strict"
 	
 	var els = {
@@ -41,4 +41,6 @@
 		localStorage.iTimerType = type;
 	}
 	
-}(jQuery));
+	window.s = new Stopwatch();
+	
+}());
