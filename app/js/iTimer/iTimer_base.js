@@ -13,7 +13,7 @@
 	fn._initEvents = function() {}
 	
 	fn.start = function() {
-		if (this._running || this._disable) return;
+		if (this._running || this._disable) return 'return'; //Ответ, для методов, которые разширяют данный
 		this._onRunning();
 		
 		requestAnimationFrame(function tik() {
@@ -31,11 +31,13 @@
 	}
 	
 	fn.stop = function() {
-		if (this._disable) return;
+		if (this._disable || !this._running) return 'return';
 		this._running = false;
 	}
 	
 	fn._stop = function() {
+		if (this._disable || this._running) return 'return';
+		
 		this._ofRunning();
 		this.els.start.focus();
 	}
@@ -46,16 +48,21 @@
 	}
 	
 	fn.reset = function() {
-		if (this._disable) return;
+		if (this._disable || this._running) return 'return';
 		
-		console.clear();
+		this.h = 0;
+		this.m = 0;
+		this.s = 0;
+		this.ms = 0;
+		
+		this.renderTime();
 	}
 	
 	fn.renderTime = function() {
 		this.els.h.innerHTML = this.formatTime(this.h, 2);
 		this.els.m.innerHTML = this.formatTime(this.m, 2);
 		this.els.s.innerHTML = this.formatTime(this.s, 2);
-		this.els.ms.innerHTML = this.formatTime(this.ms, 2);
+		this.els.ms.innerHTML = this.formatTime(this.ms, 3);
 	}
 	
 	fn.formatTime = function(value, length) {
@@ -99,10 +106,10 @@
 		var r = this.els.root = this.els.iTimerRoot
 			.querySelector(`.iTimer__${this.iTimerType}`);
 		
-		this.els.h = r.querySelector('iTimer__h');
-		this.els.m = r.querySelector('iTimer__m');
-		this.els.s = r.querySelector('iTimer__s');
-		this.els.ms = r.querySelector('iTimer__ms');
+		this.els.h = r.querySelector('.iTimer__h');
+		this.els.m = r.querySelector('.iTimer__m');
+		this.els.s = r.querySelector('.iTimer__s');
+		this.els.ms = r.querySelector('.iTimer__ms');
 		
 		this.els.reset = this.els.root.querySelector('.iTimer__reset');
 		this.els.start = this.els.root.querySelector('.iTimer__start');
@@ -116,9 +123,6 @@
 		this.m = 0;
 		this.s = 0;
 		this.ms = 0;
-		
-		this.startTime = 0;
-		this.pausedTime = 0;
 		
 		this._running = false;
 		this._disable = false;

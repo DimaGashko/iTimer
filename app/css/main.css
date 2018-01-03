@@ -161,6 +161,7 @@ body {
 .iTimer__timecomp {
 	font-size: 72px;
 	margin-left: 5px;
+	display: inline-block;
 }
 
 .iTimer__timecomp:first-child {
@@ -170,11 +171,11 @@ body {
 .iTimer__h,
 .iTimer__m,
 .iTimer__s {
-	width: 80px;
+	min-width: 95px;
 }
 
 .iTimer__ms {
-	width: 110px;
+	min-width: 110px;
 }
 
 .iTimer__timecomp:after {
