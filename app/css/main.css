@@ -121,8 +121,9 @@ body {
 }
 
 .iTimer__but:focus {
-	box-shadow: 0 2px 6px #ddd;
+	box-shadow: 0 2px 8px 2px #797777;
 	outline: none;
+	border: none;
 }
 
 .iTimer__but:hover {

@@ -13,26 +13,42 @@
 	fn._initEvents = function() {}
 	
 	fn.start = function() {
-		if (this.running) return;
+		if (this._running || this._disable) return;
 		this._onRunning();
 		
 		requestAnimationFrame(function tik() {
-			
 			this.nextPeriod();
 			
-			if (this.running) {
+			if (this.checkRunning()) {
 				requestAnimationFrame(tik.bind(this));
+			} else {
+				this._stop(); //чтобы правильно остановить таймер 
+					//если просто изменят this._running
 			}
 		}.bind(this));
+		
+		this.els.stop.focus();
 	}
 	
 	fn.stop = function() {
+		if (this._disable) return;
+		this._running = false;
+	}
+	
+	fn._stop = function() {
 		this._ofRunning();
+		this.els.start.focus();
 	}
 	
 	fn.toggleStart = function() {
-		(this.running) ? 
+		(this._running) ? 
 			this.stop() : this.start();
+	}
+	
+	fn.reset = function() {
+		if (this._disable) return;
+		
+		console.clear();
 	}
 	
 	fn.renderTime = function() {
@@ -53,14 +69,28 @@
 		this.els.iTimerRoot.classList.remove('iTimer-paused');
 		this.els.iTimerRoot.classList.add('iTimer-running');
 		
-		this.running = true;
+		this._running = true;
 	}
 	
 	fn._ofRunning = function() {
 		this.els.iTimerRoot.classList.add('iTimer-paused');
 		this.els.iTimerRoot.classList.remove('iTimer-running');
 		
-		this.running = false;
+		this._running = false;
+	}
+	
+	fn.checkRunning = function() {
+		return this._running 
+			&& !this._disable;
+	}
+	
+	fn.setDisable = function(val) {
+		this._disable = !!val;
+		this._running = false;
+	}
+	
+	fn.toggleDisable = function() {
+		this.setDisable(!this._disable);
 	}
 	
 	fn._getElements = function() {
@@ -73,6 +103,10 @@
 		this.els.m = r.querySelector('iTimer__m');
 		this.els.s = r.querySelector('iTimer__s');
 		this.els.ms = r.querySelector('iTimer__ms');
+		
+		this.els.reset = this.els.root.querySelector('.iTimer__reset');
+		this.els.start = this.els.root.querySelector('.iTimer__start');
+		this.els.stop = this.els.root.querySelector('.iTimer__stop');
 	}
 	
 	fn._createParametrs = function() {
@@ -86,7 +120,8 @@
 		this.startTime = 0;
 		this.pausedTime = 0;
 		
-		this.running = false;
+		this._running = false;
+		this._disable = false;
 	}
 	
 	fn.iTimerType = '';

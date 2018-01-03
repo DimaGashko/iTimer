@@ -24,6 +24,8 @@
 	});
 	
 	//select type iTimer
+	var timers = {};
+	
 	selectType(localStorage.iTimerType || 'stopwatch');
 	
 	els.selectStopwatch.addEventListener('click', () => {
@@ -35,12 +37,28 @@
 	});
 	
 	function selectType(type) {
-		els.iTimer.classList.remove(`iTimer-${localStorage.iTimerType}`);
+		var prevType = localStorage.iTimerType;
+		
+		els.iTimer.classList.remove(`iTimer-${prevType}`);
 		els.iTimer.classList.add(`iTimer-${type}`);
 		
+		if (timers[prevType]) timers[prevType].setDisable(true);
+		
+		if (timers[type]) timers[type].setDisable(false);
+		else createTimer(type);
+		
 		localStorage.iTimerType = type;
-	}
+	}	
 	
-	window.s = new Stopwatch();
+	function createTimer(type) {
+		if (type === 'stopwatch') {
+			timers.stopwatch = window.s = new Stopwatch();
+		} else if (type === 'timer') {
+			//timers.timer = window.t = new Timer();
+			console.log('На данный момент таймер недоступен.');
+		} else {
+			console.log('Таймер не найден');
+		}
+	}
 	
 }());

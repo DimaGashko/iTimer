@@ -53,6 +53,25 @@
 				default: break;
 			}
 		});
+		
+		document.addEventListener('keydown', (event) => {
+			switch (event.keyCode) {
+				
+				case this.KEYS.start: 
+					event.preventDefault();
+					break;
+					
+				case this.KEYS.lap:
+					if (event.altKey) event.preventDefault();
+					break;
+					
+				case this.KEYS.reset:
+					if (event.altKey) event.preventDefault();
+					break;
+					
+				default: break;
+			}
+		});
 	}
 	
 	fn.nextPeriod = function() {
@@ -61,22 +80,19 @@
 	}
 	
 	fn.lap = function() {
-		if (!this.running) return;
+		if (!this._running || this._disable) return;
 		
-		console.log('lap')
+		console.log('lap');
 	}
 	
 	fn.reset = function() {
-		console.log('reset')
+		fnBase.reset.apply(this, arguments);
 	}
 	
 	fn._getElements = function() {
 		fnBase._getElements.apply(this, arguments);
 		
-		this.els.reset = this.els.root.querySelector('.iTimer__reset');
-		this.els.start = this.els.root.querySelector('.iTimer__start');
 		this.els.lap = this.els.root.querySelector('.iTimer__lap');
-		this.els.stop = this.els.root.querySelector('.iTimer__stop');
 	}
 	
 	fn.iTimerType = 'stopwatch';
