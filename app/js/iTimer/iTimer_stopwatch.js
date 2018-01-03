@@ -29,6 +29,13 @@
 		}
 	}
 	
+	fn.stop = function() {
+		this.lap();
+		
+		var answer = fnBase.stop.apply(this, arguments);
+		if (answer === 'return') return;
+	}
+	
 	fn._stop = function() {
 		var answer = fnBase._stop.apply(this, arguments);
 		if (answer === 'return') return;
@@ -39,7 +46,14 @@
 	fn.lap = function() {
 		if (!this._running || this._disable) return;
 		
-		console.log('lap');
+		var lap = this.formatTime(this.h, 2) + ':'
+			+ this.formatTime(this.m, 2) + ':'
+			+ this.formatTime(this.s, 2) + '.'
+			+ this.formatTime(this.ms, 2);
+		
+		this.laps.push(lap);
+		
+		console.log(this.templates.lapsList(this.laps));
 	}
 	
 	fn.reset = function() {
@@ -133,6 +147,8 @@
 		
 		this.timeStart = 0;
 		this.startPaused = 0;
+		
+		this.laps = [];
 	}
 	
 	fn.iTimerType = 'stopwatch';
@@ -141,6 +157,23 @@
 		start: 32,
 		lap: 76,
 		reset: 82,
+	}
+	
+	fn.templates = {
+		
+		lap: function(lap, index) {
+			return `<li class="iTimer__lapItem">${index + 1}. ${lap}</li>`;
+		},
+		
+		lapsList: function(laps) {
+			return `<ul>
+				${laps.slice()
+					.reverse()
+					.map((item, i) => this.lap(item, (laps.length - i - 1) % laps.length))
+					.join('')}
+			</ul>`;
+		},
+		
 	}
 	
 	window.Stopwatch = Stopwatch;

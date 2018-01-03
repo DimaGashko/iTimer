@@ -16,10 +16,9 @@
 		if (this._running || this._disable) return 'return'; //Ответ, для методов, которые разширяют данный
 		this._onRunning();
 		
-		requestAnimationFrame(function tik() {
-			this.nextPeriod();
-			
+		requestAnimationFrame(function tik() {		
 			if (this.checkRunning()) {
+				this.nextPeriod();
 				requestAnimationFrame(tik.bind(this));
 			} else {
 				this._stop(); //чтобы правильно остановить таймер 
