@@ -18,7 +18,7 @@
 	
 	fn.start = function() {
 		var answer = fnBase.start.apply(this, arguments);
-		if (answer === 'return') return;
+		if (answer === 'return') return this;
 		
 		if (!this.timeStart) {
 			this.timeStart = Date.now();
@@ -27,18 +27,22 @@
 		if (this.startPaused) {
 			this.timeStart += Date.now() - this.startPaused;
 		}
+		
+		return this;
 	}
 	
 	fn.stop = function() {
 		this.lap();
 		
 		var answer = fnBase.stop.apply(this, arguments);
-		if (answer === 'return') return;
+		if (answer === 'return') return this;
+		
+		return this;
 	}
 	
 	fn._stop = function() {
 		var answer = fnBase._stop.apply(this, arguments);
-		if (answer === 'return') return;
+		if (answer === 'return') return this;
 		
 		this.startPaused = Date.now();
 	}
@@ -53,15 +57,18 @@
 		
 		this.laps.push(lap);
 		
-		console.log(this._tmpls .lapsList(this.laps));
+		//console.log(this._tmpls .lapsList(this.laps));
+		return this;
 	}
 	
 	fn.reset = function() {
 		var answer = fnBase.reset.apply(this, arguments);
-		if (answer === 'return') return;
+		if (answer === 'return') return this;
 		
 		this.timeStart = 0;
 		this.startPaused = 0;
+		
+		return this;
 	}
 	
 	fn.updateTime = function() {

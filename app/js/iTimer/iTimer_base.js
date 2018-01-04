@@ -15,9 +15,9 @@
 	fn.start = function() {
 		if (this._running) return 'return'; //Ответ, для методов, которые разширяют данный
 		this._onRunning();
-		console.log('start');
+		
 		requestAnimationFrame(function tik() {		
-			if (this.checkRunning()) {
+			if (this._running) {
 				this.nextPeriod();
 				requestAnimationFrame(tik.bind(this));
 			} else {
@@ -27,11 +27,14 @@
 		}.bind(this));
 		
 		this.els.stop.focus();
+		return this;
 	}
 	
 	fn.stop = function() {
 		if (!this._running) return 'return';
 		this._running = false;
+		
+		return this;
 	}
 	
 	fn._stop = function() {
@@ -39,12 +42,13 @@
 		
 		this._ofRunning();
 		this.els.start.focus();
-		console.log('stop');
 	}
 	
 	fn.toggleStart = function() {
 		(this._running) ? 
 			this.stop() : this.start();
+			
+		return this;
 	}
 	
 	fn.reset = function() {
@@ -56,6 +60,8 @@
 		this.ms = 0;
 		
 		this.renderTime();
+		
+		return this;
 	}
 	
 	fn.renderTime = function() {
@@ -86,17 +92,17 @@
 		this._running = false;
 	}
 	
-	fn.checkRunning = function() {
-		return this._running;
-	}
-	
 	//error: start -> changeType -> changeType -> start
 	fn.setDisable = function(val) {
 		this._disable = !!val;
+		
+		return this;
 	}
 	
 	fn.toggleDisable = function() {
 		this.setDisable(!this._disable);
+		
+		return this;
 	}
 	
 	fn._getElements = function() {
