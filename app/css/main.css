@@ -223,7 +223,10 @@ body {
 }
 
 .iTimer__lapslist {
-	text-align: left;
+	text-align: center;
+	font-size: 20px;
+	list-style: none;
+	
 }
 
 .iTimer__timer {

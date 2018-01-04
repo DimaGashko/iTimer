@@ -75,7 +75,7 @@
 		var strValue = value + '';
 		
 		if (strValue.length >= length) return strValue;
-		return (new Array(length).join('0') + strValue).slice(-length);
+		return ('000' + strValue).slice(-length);
 	}
 	
 	fn._onRunning = function() {

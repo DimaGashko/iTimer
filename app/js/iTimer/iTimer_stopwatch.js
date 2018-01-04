@@ -53,11 +53,12 @@
 		var lap = this.formatTime(this.h, 2) + ':'
 			+ this.formatTime(this.m, 2) + ':'
 			+ this.formatTime(this.s, 2) + '.'
-			+ this.formatTime(this.ms, 2);
+			+ this.formatTime(this.ms, 3);
 		
 		this.laps.push(lap);
 		
-		//console.log(this._tmpls .lapsList(this.laps));
+		this._renderLap(this.laps, this.laps.length - 1);
+		
 		return this;
 	}
 	
@@ -68,7 +69,17 @@
 		this.timeStart = 0;
 		this.startPaused = 0;
 		
+		this.laps.length = 0; //Очищаем массив так, что бы массив остался тот же
+			//И если на него делали ссылки, что бы они остались актуальными
+			
+		this.els.lapsList.innerHTML = '';
+		
 		return this;
+	}
+	
+	fn._renderLap = function(laps, index) {
+		var html = this._tmpls.lap(laps[index], index);
+		this.els.lapsList.insertAdjacentHTML('afterbegin', html);
 	}
 	
 	fn.updateTime = function() {
@@ -151,6 +162,7 @@
 		fnBase._getElements.apply(this, arguments);
 		
 		this.els.lap = this.els.root.querySelector('.iTimer__lap');
+		this.els.lapsList = this.els.root.querySelector('.iTimer__lapslist');
 	}
 	
 	fn._createParametrs = function() {
@@ -173,16 +185,16 @@
 	fn._tmpls = {
 		
 		lap: function(lap, index) {
-			return `<li class="iTimer__lapItem">${index + 1}. ${lap}</li>`;
+			return `<li class="iTimer__lapItem">Замер №${index + 1}. ${lap}</li>`;
 		},
 		
 		lapsList: function(laps) {
-			return `<ul>
+			return `
 				${laps.slice()
 					.reverse()
 					.map((item, i) => this.lap(item, (laps.length - i - 1) % laps.length))
 					.join('')}
-			</ul>`;
+			`;
 		},
 		
 	}
