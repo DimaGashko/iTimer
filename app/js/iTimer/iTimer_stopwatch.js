@@ -31,9 +31,7 @@
 		return this;
 	}
 	
-	fn.stop = function() {
-		this.lap();
-		
+	fn.stop = function() {	
 		var answer = fnBase.stop.apply(this, arguments);
 		if (answer === 'return') return this;
 		
@@ -97,7 +95,10 @@
 		});
 		
 		this.els.stop.addEventListener('click', () => {
-			if (!this._disable) this.stop();
+			if (!this._disable) {
+				this.lap();
+				this.stop();
+			}
 		});
 		
 		this.els.lap.addEventListener('click', () => {
@@ -115,6 +116,7 @@
 				
 				case this.KEYS.start: 
 					event.preventDefault();
+					if (this._running) this.lap();
 					this.toggleStart();
 					break;
 					

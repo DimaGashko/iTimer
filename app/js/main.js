@@ -74,8 +74,7 @@
 		if (type === 'stopwatch') {
 			timers.stopwatch = window.s = new Stopwatch();
 		} else if (type === 'timer') {
-			//timers.timer = window.t = new Timer();
-			console.log('На данный момент таймер недоступен.');
+			timers.timer = window.t = new Timer();
 		} else {
 			console.log('Таймер не найден');
 		}

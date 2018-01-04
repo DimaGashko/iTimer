@@ -5,6 +5,8 @@
 		this._createParametrs();
 		this._getElements();
 		this._initEvents();
+		
+		this.start().stop();
 	}
 	
 	var fn = Base.prototype;
@@ -79,15 +81,15 @@
 	}
 	
 	fn._onRunning = function() {
-		this.els.iTimerRoot.classList.remove('iTimer-paused');
-		this.els.iTimerRoot.classList.add('iTimer-running');
+		this.els.root.classList.remove(`iTimer__${this.iTimerType}-paused`);
+		this.els.root.classList.add(`iTimer__${this.iTimerType}-running`);
 		
 		this._running = true;
 	}
 	
 	fn._ofRunning = function() {
-		this.els.iTimerRoot.classList.add('iTimer-paused');
-		this.els.iTimerRoot.classList.remove('iTimer-running');
+		this.els.root.classList.remove(`iTimer__${this.iTimerType}-running`);
+		this.els.root.classList.add(`iTimer__${this.iTimerType}-paused`);
 		
 		this._running = false;
 	}

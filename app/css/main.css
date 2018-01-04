@@ -162,6 +162,7 @@ body {
 	font-size: 72px;
 	margin-left: 5px;
 	display: inline-block;
+	text-align: center;
 }
 
 .iTimer__timecomp:first-child {
@@ -212,13 +213,13 @@ body {
 	margin-left: 0;
 }
 
-.iTimer-paused .iTimer__reset,
-.iTimer-paused .iTimer__start {
+.iTimer__stopwatch-paused .iTimer__reset,
+.iTimer__stopwatch-paused .iTimer__start {
 		display: inline-block;
 }
 
-.iTimer-running .iTimer__lap,
-.iTimer-running .iTimer__stop {
+.iTimer__stopwatch-running .iTimer__lap,
+.iTimer__stopwatch-running .iTimer__stop {
 		display: inline-block;
 }
 
@@ -228,10 +229,37 @@ body {
 	list-style: none;
 	
 }
-
+/* Timer */
 .iTimer__timer {
 	display: none;
 }
+
+.iTimer__timer .iTimer__reset {
+	display: inline-block;
+}
+
+.iTimer__timer-paused .iTimer__start {
+	display: inline-block;
+}
+
+.iTimer__timer-running .iTimer__stop {
+	display: inline-block;
+}
+
+.stopwatch__settime .iTimer__timecomp {
+	
+}
+
+.stopwatch__settime .iTimer__h,
+.stopwatch__settime .iTimer__m,
+.stopwatch__settime .iTimer__s {
+	width: 115px;
+}
+
+.stopwatch__settime .iTimer__ms {
+	width: 140px;
+}
+
 /* FOOTER */
 .footer__container {
 	background: #aaa;
