@@ -13,6 +13,11 @@
 		timer: document.querySelector('.iTimer__timer'),
 	}
 	
+	var KEYS = {
+		stopwatch:  83,
+		timer:  84,
+	}
+	
 	//help
 	els.openHelp.addEventListener('click', () => {
 		alert('Помощь будет добавлена в скором времени!');
@@ -34,6 +39,21 @@
 	
 	els.selectTimer.addEventListener('click', () => {
 		selectType('timer');
+	});
+	
+	document.addEventListener('keyup', (event) => {
+		if (!event.altKey) return;
+		
+		switch (event.keyCode) {
+			
+			case KEYS.stopwatch:
+				selectType('stopwatch');
+				break;
+			
+			case KEYS.timer:
+				selectType('timer');
+			
+		}
 	});
 	
 	function selectType(type) {
