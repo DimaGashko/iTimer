@@ -44,7 +44,7 @@
 	}
 	
 	fn.lap = function() {
-		if (!this._running || this._disable) return;
+		if (!this._running) return;
 		
 		var lap = this.formatTime(this.h, 2) + ':'
 			+ this.formatTime(this.m, 2) + ':'
@@ -53,7 +53,7 @@
 		
 		this.laps.push(lap);
 		
-		console.log(this.templates.lapsList(this.laps));
+		console.log(this._tmpls .lapsList(this.laps));
 	}
 	
 	fn.reset = function() {
@@ -75,22 +75,24 @@
 	
 	fn._initEvents = function() {
 		this.els.start.addEventListener('click', () => {
-			this.start();
+			if (!this._disable) this.start();
 		});
 		
 		this.els.stop.addEventListener('click', () => {
-			this.stop();
+			if (!this._disable) this.stop();
 		});
 		
 		this.els.lap.addEventListener('click', () => {
-			this.lap();
+			if (!this._disable) this.lap();
 		});
 		
 		this.els.reset.addEventListener('click', () => {
-			this.reset();
+			if (!this._disable) this.reset();
 		});
 		
 		document.addEventListener('keyup', (event) => {
+			if (this._disable) return; 
+			
 			switch (event.keyCode) {
 				
 				case this.KEYS.start: 
@@ -117,6 +119,8 @@
 		});
 		
 		document.addEventListener('keydown', (event) => {
+			if (this._disable) return;
+			
 			switch (event.keyCode) {
 				
 				case this.KEYS.start: 
@@ -159,7 +163,7 @@
 		reset: 82,
 	}
 	
-	fn.templates = {
+	fn._tmpls = {
 		
 		lap: function(lap, index) {
 			return `<li class="iTimer__lapItem">${index + 1}. ${lap}</li>`;

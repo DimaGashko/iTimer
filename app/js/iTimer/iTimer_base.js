@@ -13,9 +13,9 @@
 	fn._initEvents = function() {}
 	
 	fn.start = function() {
-		if (this._running || this._disable) return 'return'; //Ответ, для методов, которые разширяют данный
+		if (this._running) return 'return'; //Ответ, для методов, которые разширяют данный
 		this._onRunning();
-		
+		console.log('start');
 		requestAnimationFrame(function tik() {		
 			if (this.checkRunning()) {
 				this.nextPeriod();
@@ -30,15 +30,16 @@
 	}
 	
 	fn.stop = function() {
-		if (this._disable || !this._running) return 'return';
+		if (!this._running) return 'return';
 		this._running = false;
 	}
 	
 	fn._stop = function() {
-		if (this._disable || this._running) return 'return';
+		if (this._running) return 'return';
 		
 		this._ofRunning();
 		this.els.start.focus();
+		console.log('stop');
 	}
 	
 	fn.toggleStart = function() {
@@ -47,7 +48,7 @@
 	}
 	
 	fn.reset = function() {
-		if (this._disable || this._running) return 'return';
+		if (this._running) return 'return';
 		
 		this.h = 0;
 		this.m = 0;
@@ -86,13 +87,12 @@
 	}
 	
 	fn.checkRunning = function() {
-		return this._running 
-			&& !this._disable;
+		return this._running;
 	}
 	
+	//error: start -> changeType -> changeType -> start
 	fn.setDisable = function(val) {
 		this._disable = !!val;
-		this._running = false;
 	}
 	
 	fn.toggleDisable = function() {
