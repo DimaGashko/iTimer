@@ -62,7 +62,7 @@
 		els.iTimer.classList.remove(`iTimer-${prevType}`);
 		els.iTimer.classList.add(`iTimer-${type}`);
 		
-		if (timers[prevType]) timers[prevType].setDisable(true).stop();
+		if (timers[prevType]) timers[prevType].setDisable(true);
 		
 		if (timers[type]) timers[type].setDisable(false);
 		else createTimer(type);
