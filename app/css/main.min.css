@@ -1,98 +1,3 @@
-/* BASE */
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  background: #333;
-  color: #666;
-}
-
-
-
-.container {
-  max-width: 940px;
-  padding: 10px;
-  margin: 0 auto;
-}
-
-.section {
-  margin: 0;
-}
-
-/* HEADER */
-
-
-
-.header__container {
-  position: relative;
-  background: #aaa;
-}
-
-.header__logo {
-  text-align: center;
-  font-size: 72px;
-  padding: 20px;
-  user-select: none;
-}
-
-.header__help,
-.header__set {
-  position: absolute;
-  top: 20px;
-  width: 32px;
-  height: 32px;
-  background-image: #333;
-  cursor: pointer;
-  transition: transform 0.3s;
-  border: none;
-  outline: none;
-  user-select: none;
-}
-
-.header__help:hover {
-  transform: rotate(-15deg);
-}
-
-.header__set:hover {
-  transform: rotate(15deg);
-}
-
-.header__help:focus {
-  transform: rotate(-30deg);
-}
-
-.header__set:focus {
-  transform: rotate(30deg);
-}
-
-.header__help {
-  left: 10px;
-  background: url("../img/icons/help.png");
-}
-
-.header__set {
-  right: 10px;
-  background: url("../img/icons/set.png");
-}
-
-/* MAIN */
-
-
-
-.main__container {
-  background: #fff;
-  min-height: 450px;
-  position: relative;
-}
-
-/* FOOTER */
-
-.footer__container {
-  background: #aaa;
-}
 /* iTimer */
 
 .iTimer-stopwatch .iTimer__stopwatch {
@@ -120,11 +25,15 @@ body {
   border: 1px solid #ddd;
   border-radius: 2px;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .iTimer__but:focus {
-  box-shadow: 0 2px 8px 2px #797777;
+  -webkit-box-shadow: 0 2px 8px 2px #797777;
+          box-shadow: 0 2px 8px 2px #797777;
   outline: none;
   border: none;
 }
