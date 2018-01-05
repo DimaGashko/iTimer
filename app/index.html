@@ -8,14 +8,21 @@
 		
 		<link rel="shortcut icon" href="favicon.png" type="image/png">
 		
-		<link rel="stylesheet" href="css/lib/normalize.min.css">
+		<!-- build:css css/vendor.css -->
+		<link rel="stylesheet" href="css/lib/normalize.min.css"/>
+		<!-- endbu -->
+		
+		<!-- build:css css/main.css -->
 		<link rel="stylesheet" href="css/main.css">
+		<!-- endbuild -->
 	
+		<!-- build:js js/main.js defer -->
 		<script defer src="js/iTimer/iTimer_base.js"></script>
 		<script defer src="js/iTimer/iTimer_stopwatch.js"></script>
 		<script defer src="js/iTimer/iTimer_timer.js"></script>
 		
 		<script defer src="js/main.js"></script>
+		<!-- endbuild -->
 	</head>
 	
 	<body>
@@ -27,7 +34,7 @@
 					<button class="header__set"></button>
 				</div>
 			</header>
-			
+	
 			<section class="section main">
 				<div class="container main__container">
 				

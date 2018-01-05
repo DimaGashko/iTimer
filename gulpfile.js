@@ -1,17 +1,23 @@
 "use strict"
 
 var gulp = require('gulp');
+
 var rename = require('gulp-rename');
 var notify = require('gulp-notify');
 
-var revAppend = require('gulp-rev-append');
-var rev = require('gulp-rev');
+var wiredep = require('wiredep').stream;
+var useref = require('gulp-useref');
+var gulpif = require('gulp-if');
 
 var livereload = require('gulp-livereload');
 var connect = require('gulp-connect');
 
 var sass = require('gulp-sass');
+var minifyCss = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
+
+var uglify = require('gulp-uglify');
+var babel = require('gulp-babel');
 
 gulp.task('default', ['connect', 'html', 'style', 'watch']);
 
@@ -37,16 +43,26 @@ gulp.task('connect', () => {
 	});
 });
 
-gulp.task('revAppend', () => {
-	gulp.src('app/index.html')
-		.pipe(revAppend())
+gulp.task('js', () => {
+	gulp.src('app/js/main.js')
+		.pipe(babel())
 		.pipe(gulp.dest('app/'));
 });
 
-gulp.task('rev', () => {
+gulp.task('build', () => {
 	gulp.src('app/index.html')
-		.pipe(rev())
-		.pipe(gulp.dest('app/'));
+		.pipe(useref())
+		.pipe(gulpif('*.js', babel({
+			presets: ['es2015'],
+		})))
+		.pipe(gulpif('*.css', minifyCss()))
+		.pipe(gulp.dest('dist/'));
+	
+	gulp.src('app/favicon.png')
+		.pipe(gulp.dest('dist/'));
+		
+	gulp.src('app/img/**/*.*')
+		.pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('watch', () => {
