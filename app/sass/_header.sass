@@ -1,0 +1,54 @@
+﻿.header 
+	
+
+
+.header__container 
+	position: relative;
+	background: #aaa;
+
+
+.header__logo 
+	text-align: center;
+	font-size: 72px;
+	padding: 20px;
+	user-select: none;
+
+
+.header__help,
+.header__set 
+	position: absolute;
+	top: 20px;
+	width: 32px;
+	height: 32px;
+	background-image: #333;
+	cursor: pointer;
+	transition: transform 0.3s;
+	border: none;
+	outline: none;
+	user-select: none;
+
+
+.header__help:hover 
+	transform: rotate(-15deg);
+
+
+.header__set:hover 
+	transform: rotate(15deg);
+
+
+.header__help:focus 
+	transform: rotate(-30deg);
+
+
+.header__set:focus 
+	transform: rotate(30deg);
+
+
+.header__help 
+	left: 10px;
+	background: url(../img/icons/help.png);
+
+
+.header__set 
+	right: 10px;
+	background: url(../img/icons/set.png);

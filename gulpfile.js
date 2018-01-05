@@ -10,13 +10,13 @@ var connect = require('gulp-connect');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task('default', ['connect', 'html', 'css', 'watch']);
+gulp.task('default', ['connect', 'html', 'style', 'watch']);
 
 gulp.task('style', () => {
-	gulp.src('app/sass/*.sass')
-		.pipe(concatCss('main.css'))
+	gulp.src('app/sass/main.sass')
+		.pipe(sass())
 		.pipe(autoprefixer('last 2 versions', '> 1 %', 'ie 9'))
-		.pipe(rename('main.min.css'))
+		.pipe(rename('main.css'))
 		.pipe(gulp.dest('app/css'))
 		.pipe(connect.reload())
 		.pipe(notify('Default Done!'));

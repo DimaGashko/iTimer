@@ -1,42 +1,30 @@
-/* BASE */
-
-html,
-body {
-  height: 100%;
-}
+html, body {
+  height: 100%; }
 
 body {
   background: #333;
-  color: #666;
-}
-
-
+  color: #666; }
 
 .container {
   max-width: 940px;
   padding: 10px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 .section {
-  margin: 0;
-}
-
-/* HEADER */
-
-
+  margin: 0; }
 
 .header__container {
   position: relative;
-  background: #aaa;
-}
+  background: #aaa; }
 
 .header__logo {
   text-align: center;
   font-size: 72px;
   padding: 20px;
-  user-select: none;
-}
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .header__help,
 .header__set {
@@ -46,217 +34,179 @@ body {
   height: 32px;
   background-image: #333;
   cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
   border: none;
   outline: none;
-  user-select: none;
-}
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .header__help:hover {
-  transform: rotate(-15deg);
-}
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg); }
 
 .header__set:hover {
-  transform: rotate(15deg);
-}
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg); }
 
 .header__help:focus {
-  transform: rotate(-30deg);
-}
+  -webkit-transform: rotate(-30deg);
+          transform: rotate(-30deg); }
 
 .header__set:focus {
-  transform: rotate(30deg);
-}
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg); }
 
 .header__help {
   left: 10px;
-  background: url("../img/icons/help.png");
-}
+  background: url(../img/icons/help.png); }
 
 .header__set {
   right: 10px;
-  background: url("../img/icons/set.png");
-}
-
-/* MAIN */
-
-
+  background: url(../img/icons/set.png); }
 
 .main__container {
   background: #fff;
   min-height: 450px;
-  position: relative;
-}
-
-/* FOOTER */
-
-.footer__container {
-  background: #aaa;
-}
-/* iTimer */
+  position: relative; }
 
 .iTimer-stopwatch .iTimer__stopwatch {
-  display: block;
-}
+  display: block; }
 
 .iTimer-stopwatch .iTimer__selectStopwatch {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .iTimer-timer .iTimer__timer {
-  display: block;
-}
+  display: block; }
 
 .iTimer-timer .iTimer__selectTimer {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 .iTimer__but {
   padding: 5px 15px;
   color: #444;
   font-family: "Times New Roman";
   background: #dddddd;
-  background: -webkit-linear-gradient(top,#eee,#999);
+  background: -webkit-linear-gradient(top, #eee, #999);
   border: 1px solid #ddd;
   border-radius: 2px;
   cursor: pointer;
-  user-select: none;
-}
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .iTimer__but:focus {
-  box-shadow: 0 2px 8px 2px #797777;
+  -webkit-box-shadow: 0 2px 8px 2px #797777;
+          box-shadow: 0 2px 8px 2px #797777;
   outline: none;
-  border: none;
-}
+  border: none; }
 
 .iTimer__but:hover {
-  color: #666;
-}
+  color: #666; }
 
 .iTimer__but:active {
   background: #dddddd;
-  background: -webkit-linear-gradient(bottom,#eee,#999);
-}
+  background: -webkit-linear-gradient(bottom, #eee, #999); }
 
 .iTimer__selectTimer,
 .iTimer__selectStopwatch {
   position: absolute;
-  top: 10px;
-}
+  top: 10px; }
 
 .iTimer__selectStopwatch {
-  left: 10px;
-}
+  left: 10px; }
 
 .iTimer__selectTimer {
-  right: 10px;
-}
+  right: 10px; }
 
 .iTimer__type {
   margin-top: 50px;
-  text-align: center;
-}
+  text-align: center; }
 
 .iTimer__time {
-  font-size: 0;
-}
+  font-size: 0; }
 
 .iTimer__timecomp {
   font-size: 72px;
   margin-left: 5px;
   display: inline-block;
-  text-align: center;
-}
+  text-align: center; }
 
 .iTimer__timecomp:first-child {
-  margin-left: 0;
-}
+  margin-left: 0; }
 
 .iTimer__h,
 .iTimer__m,
 .iTimer__s {
-  min-width: 95px;
-}
+  min-width: 95px; }
 
 .iTimer__ms {
-  min-width: 110px;
-}
+  min-width: 110px; }
 
 .iTimer__timecomp:after {
-  margin-left: 5px;
-}
+  margin-left: 5px; }
 
 .iTimer__h:after,
 .iTimer__m:after {
-  content: ':';
-}
+  content: ':'; }
 
 .iTimer__s:after {
-  content: '.';
-}
+  content: '.'; }
 
 .iTimer__time {
-  margin: 40px;
-}
+  margin: 40px; }
 
 .iTimer__stopwatch {
-  display: none;
-}
+  display: none; }
 
 .iTimer__control {
   display: none;
   padding: 6px 0px;
   margin-left: 10px;
   text-align: center;
-  width: 150px;
-}
+  width: 150px; }
 
 .iTimer__control:first-child {
-  margin-left: 0;
-}
+  margin-left: 0; }
 
 .iTimer__stopwatch-paused .iTimer__reset,
 .iTimer__stopwatch-paused .iTimer__start {
-  display: inline-block;
-}
+  display: inline-block; }
 
 .iTimer__stopwatch-running .iTimer__lap,
 .iTimer__stopwatch-running .iTimer__stop {
-  display: inline-block;
-}
+  display: inline-block; }
 
 .iTimer__lapslist {
   text-align: center;
   font-size: 20px;
-  list-style: none;
-}
+  list-style: none; }
 
 /* Timer */
-
 .iTimer__timer {
-  display: none;
-}
+  display: none; }
 
 .iTimer__timer .iTimer__reset {
-  display: inline-block;
-}
+  display: inline-block; }
 
 .iTimer__timer-paused .iTimer__start {
-  display: inline-block;
-}
+  display: inline-block; }
 
 .iTimer__timer-running .iTimer__stop {
-  display: inline-block;
-}
-
-
+  display: inline-block; }
 
 .stopwatch__settime .iTimer__h,
 .stopwatch__settime .iTimer__m,
 .stopwatch__settime .iTimer__s {
-  width: 115px;
-}
+  width: 115px; }
 
 .stopwatch__settime .iTimer__ms {
-  width: 140px;
-}
+  width: 140px; }
+
+.footer__container {
+  background: #aaa; }
