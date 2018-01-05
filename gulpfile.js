@@ -16,7 +16,6 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 
-var uglify = require('gulp-uglify');
 var babel = require('gulp-babel');
 
 gulp.task('default', ['connect', 'html', 'style', 'watch']);
