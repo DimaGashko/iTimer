@@ -2,12 +2,21 @@
 
 const $ = require('gulp-load-plugins')();
 const gulp = require('gulp');
-const combine = require('stream-combiner2').obj;
 
 module.exports = function(options) {
 	return function() {
 		return gulp.src(options.src)
-			pipe($.connect.reload());
+			.pipe($.pug({
+				pretty: true,
+			}))
+			.on('error', $.notify.onError((err) => {
+				return {
+					title: 'Jade',
+					massege: err.massege,
+				}
+			}))
+			.pipe($.connect.reload())
+			.pipe(gulp.dest(options.dst));
 		
 	}
 }

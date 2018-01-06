@@ -10,7 +10,8 @@ lrTask('css', './tasks/css', {
 });
 
 lrTask('html', './tasks/html', {
-	src: 'app/index.html',
+	src: 'app/jade/index.jade',
+	dst: 'app/',
 });
 
 lrTask('connect', './tasks/connect', {
@@ -20,6 +21,12 @@ lrTask('connect', './tasks/connect', {
 		port: 8000,
 	}
 });
+
+/*
+lrTask('svgSprite', './tasks/svgSprite', {
+	src: 'app/img/icons/*.svg',
+	dst: 'app/img/'
+});*/
 
 lrTask('js', './tasks/js', {
 	src: 'app/js/main.js',
@@ -41,8 +48,13 @@ lrTask('build:img', './tasks/build_img', {
 	dst: 'dist/',
 });
 
+lrTask('build:svgmin', './tasks/svgSprite', {
+	src: 'dist/img/**/*.svg',
+	dst: 'app/img/'
+})
+
 lrTask('build:html', './tasks/build_html', {
-	src: ['dist/**/*.html'],
+	src: 'dist/**/*.html',
 	dst: 'dist/',
 });
 

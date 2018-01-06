@@ -1,0 +1,97 @@
+﻿doctype html
+html
+	head
+		title iTimer - Таймер и секундомер с возобновлением работы при обновлении страницы
+		
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		
+		link(rel="shortcut icon", href="favicon.png", type="imageng")
+		
+		//build:css css/vendor.css
+		link(rel="stylesheet", href="css/lib/normalize.min.css")
+		//endbuild
+		
+		//build:css css/main.css
+		link(rel="stylesheet", href="css/main.css")
+		//endbuild
+	
+		//build:js js/main.js defer
+		script(defer, src="js/iTimer/iTimer_base.js")
+		script(defer, src="js/iTimer/iTimer_stopwatch.js")
+		script(defer, src="js/iTimer/iTimer_timer.js")
+		
+		script(defer, src="js/main.js")
+		//endbuild
+	
+	body
+		.wrapper
+			header.section.header
+				.container.header__container
+					.header__logo iTimer
+					button.header__help
+					button.header__set
+	
+			section.section.main
+				.container.main__container
+				
+					//iTimer
+					.iTimer
+						button.iTimer__but.iTimer__selectStopwatch Секундомер (alt + s)
+						button.iTimer__but iTimer__selectTimer Таймер (alt + t)
+						
+						//stopwatch
+						.iTimer__type.iTimer__stopwatch
+							.iTimer__time.stopwatch__time
+								.iTimer__timecomp.iTimer__h 00
+								.iTimer__timecomp.iTimer__m 00
+								.iTimer__timecomp.iTimer__s 00
+								.iTimer__timecomp.iTimer__ms 000
+							
+							.iTimer__controls
+								.iTimer__controlsPaused
+									button.iTimer__but.iTimer__control.iTimer__reset Сброс (alt + R)
+									button.iTimer__but.iTimer__control.iTimer__start Старт (пробел)
+								
+								.iTimer__controlsRunning
+									button.iTimer__but.iTimer__control.iTimer__lap Lap (alt + L)
+									button.iTimer__but iTimer__control iTimer__stop Стоп (пробел)
+								
+							ul.iTimer__lapslist
+						
+						//timer
+						.iTimer__type.iTimer__timer
+							.iTimer__time.stopwatch__settime
+								input.iTimer__timecomp.iTimer__h(type="number", min="0", max="99", step="1", value="0")
+								input.iTimer__timecomp.iTimer__m(type="number", min="0", max="59", step="1", value="0")
+								input.iTimer__timecomp.iTimer__s(type="number", min="0", max="59", step="1", value="0")
+								input.iTimer__timecomp.iTimer__ms(type="number", min="0", max="999", step="1", value="0")
+							
+							.iTimer__time stopwatch__time
+								.iTimer__timecomp.iTimer__h 00
+								.iTimer__timecomp.iTimer__m 00
+								.iTimer__timecomp.iTimer__s 00
+								.iTimer__timecomp.iTimer__ms 000
+							
+							.iTimer__controls
+								button.iTimer__but.iTimer__control.iTimer__reset Сброс (alt + R)
+								button.iTimer__but.iTimer__control.iTimer__start Старт (пробел)
+								button.iTimer__but.iTimer__control.iTimer__stop Стоп (пробел)
+							
+							.iTimer__templatesContainer
+								//button.iTimer__but.iTimer__newtemplate
+								.iTimer__templates
+			
+			footer.section.footer
+				.container.footer__container
+					p.footer__hint Подсказка: если во время работы iTimer-а вы закроете страницу, просто откройте ее и его работа возобновится.
+					p Разработчик: Контакт1, Контакт2, Контакт3
+
+					
+					
+					
+					
+					
+					
+					
+					

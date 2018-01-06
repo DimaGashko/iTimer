@@ -1,106 +1,91 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>iTimer - Таймер и секундомер с возобновлением работы при обновлении страницы</title>
-		
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<link rel="shortcut icon" href="favicon.png" type="image/png">
-		
-		<!-- build:css css/vendor.css -->
-		<link rel="stylesheet" href="css/lib/normalize.min.css"/>
-		<!-- endbu -->
-		
-		<!-- build:css css/main.css -->
-		<link rel="stylesheet" href="css/main.css">
-		<!-- endbuild -->
-	
-		<!-- build:js js/main.js defer -->
-		<script defer src="js/iTimer/iTimer_base.js"></script>
-		<script defer src="js/iTimer/iTimer_stopwatch.js"></script>
-		<script defer src="js/iTimer/iTimer_timer.js"></script>
-		
-		<script defer src="js/main.js"></script>
-		<!-- endbuild -->
-	</head>
-	
-	<body>
-		<div class="wrapper">
-			<header class="section header">
-				<div class="container header__container">
-					<div class="header__logo">iTimer</div>
-					<button class="header__help"></button>
-					<button class="header__set"></button>
-				</div>
-			</header>
-	
-			<section class="section main">
-				<div class="container main__container">
-				
-					<!-- iTimer -->
-					<div class="iTimer">
-						<button class="iTimer__but iTimer__selectStopwatch">Секундомер (alt + s)</button>
-						<button class="iTimer__but iTimer__selectTimer">Таймер (alt + t)</button>
-						
-						<!-- stopwatch -->
-						<div class="iTimer__type iTimer__stopwatch">
-							<div class="iTimer__time stopwatch__time">
-								<div class="iTimer__timecomp iTimer__h">00</div>
-								<div class="iTimer__timecomp iTimer__m">00</div>
-								<div class="iTimer__timecomp iTimer__s">00</div>
-								<div class="iTimer__timecomp iTimer__ms">000</div>
-							</div>
-							<div class="iTimer__controls">
-								<div class="iTimer__controlsPaused">
-									<button class="iTimer__but iTimer__control iTimer__reset">Сброс (alt + R)</button>
-									<button class="iTimer__but iTimer__control iTimer__start">Старт (пробел)</button>
-								</div>
-								<div class="iTimer__controlsRunning">
-									<button class="iTimer__but iTimer__control iTimer__lap">Lap (alt + L)</button>
-									<button class="iTimer__but iTimer__control iTimer__stop">Стоп (пробел)</button>
-								</div>
-							</div>
-							<ul class="iTimer__lapslist">
-							
-							</ul>
-						</div>
-						
-						<!-- timer -->
-						<div class="iTimer__type iTimer__timer">
-							<div class="iTimer__time stopwatch__settime">
-								<input class="iTimer__timecomp iTimer__h" type="number" min="0" max="99" step="1" value="0">
-								<input class="iTimer__timecomp iTimer__m" type="number" min="0" max="59" step="1" value="0">
-								<input class="iTimer__timecomp iTimer__s" type="number" min="0" max="59" step="1" value="0">
-								<input class="iTimer__timecomp iTimer__ms" type="number" min="0" max="999" step="1" value="0">
-							</div>
-							<div class="iTimer__time stopwatch__time">
-								<div class="iTimer__timecomp iTimer__h">00</div>
-								<div class="iTimer__timecomp iTimer__m">00</div>
-								<div class="iTimer__timecomp iTimer__s">00</div>
-								<div class="iTimer__timecomp iTimer__ms">000</div>
-							</div>
-							<div class="iTimer__controls">
-								<button class="iTimer__but iTimer__control iTimer__reset">Сброс (alt + R)</button>
-								<button class="iTimer__but iTimer__control iTimer__start">Старт (пробел)</button>
-								<button class="iTimer__but iTimer__control iTimer__stop">Стоп (пробел)</button>
-							</div>
-							<div class="iTimer__templatesContainer">
-								<!--<button class="iTimer__but iTimer__newtemplate"></button>-->
-								<div class="iTimer__templates"></div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</section>
-			
-			<footer class="section footer">
-				<div class="container footer__container">
-					<p class="footer__hint">Подсказка: если во время работы iTimer-а вы закроете страницу, просто откройте ее и его работа возобновится.</p>
-					<p>Разработчик: Контакт1, Контакт2, Контакт3</p>
-				</div>
-			</footer>			
-		</div>
-	</body>
+  <head>
+    <title>iTimer - Таймер и секундомер с возобновлением работы при обновлении страницы</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="imageng">
+    <!--build:css css/vendor.css-->
+    <link rel="stylesheet" href="css/lib/normalize.min.css">
+    <!--endbuild-->
+    <!--build:css css/main.css-->
+    <link rel="stylesheet" href="css/main.css">
+    <!--endbuild-->
+    <!--build:js js/main.js defer-->
+    <script defer src="js/iTimer/iTimer_base.js"></script>
+    <script defer src="js/iTimer/iTimer_stopwatch.js"></script>
+    <script defer src="js/iTimer/iTimer_timer.js"></script>
+    <script defer src="js/main.js"></script>
+    <!--endbuild-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="section header">
+        <div class="container header__container">
+          <div class="header__logo">iTimer</div>
+          <button class="header__help"></button>
+          <button class="header__set"></button>
+        </div>
+      </header>
+      <section class="section main">
+        <div class="container main__container">
+          <!--iTimer-->
+          <div class="iTimer">
+            <button class="iTimer__but iTimer__selectStopwatch">Секундомер (alt + s)</button>
+            <button class="iTimer__but">iTimer__selectTimer Таймер (alt + t)</button>
+            <!--stopwatch-->
+            <div class="iTimer__type iTimer__stopwatch">
+              <div class="iTimer__time stopwatch__time">
+                <div class="iTimer__timecomp iTimer__h">00</div>
+                <div class="iTimer__timecomp iTimer__m">00</div>
+                <div class="iTimer__timecomp iTimer__s">00</div>
+                <div class="iTimer__timecomp iTimer__ms">000</div>
+              </div>
+              <div class="iTimer__controls">
+                <div class="iTimer__controlsPaused">
+                  <button class="iTimer__but iTimer__control iTimer__reset">Сброс (alt + R)</button>
+                  <button class="iTimer__but iTimer__control iTimer__start">Старт (пробел)</button>
+                </div>
+                <div class="iTimer__controlsRunning">
+                  <button class="iTimer__but iTimer__control iTimer__lap">Lap (alt + L)</button>
+                  <button class="iTimer__but">iTimer__control iTimer__stop Стоп (пробел)</button>
+                </div>
+              </div>
+              <ul class="iTimer__lapslist"></ul>
+            </div>
+            <!--timer-->
+            <div class="iTimer__type iTimer__timer">
+              <div class="iTimer__time stopwatch__settime">
+                <input class="iTimer__timecomp iTimer__h" type="number" min="0" max="99" step="1" value="0">
+                <input class="iTimer__timecomp iTimer__m" type="number" min="0" max="59" step="1" value="0">
+                <input class="iTimer__timecomp iTimer__s" type="number" min="0" max="59" step="1" value="0">
+                <input class="iTimer__timecomp iTimer__ms" type="number" min="0" max="999" step="1" value="0">
+              </div>
+              <div class="iTimer__time">stopwatch__time
+                <div class="iTimer__timecomp iTimer__h">00</div>
+                <div class="iTimer__timecomp iTimer__m">00</div>
+                <div class="iTimer__timecomp iTimer__s">00</div>
+                <div class="iTimer__timecomp iTimer__ms">000</div>
+              </div>
+              <div class="iTimer__controls">
+                <button class="iTimer__but iTimer__control iTimer__reset">Сброс (alt + R)</button>
+                <button class="iTimer__but iTimer__control iTimer__start">Старт (пробел)</button>
+                <button class="iTimer__but iTimer__control iTimer__stop">Стоп (пробел)</button>
+              </div>
+              <div class="iTimer__templatesContainer">
+                <!--button.iTimer__but.iTimer__newtemplate-->
+                <div class="iTimer__templates"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="section footer">
+        <div class="container footer__container">
+          <p class="footer__hint">Подсказка: если во время работы iTimer-а вы закроете страницу, просто откройте ее и его работа возобновится.</p>
+          <p>Разработчик: Контакт1, Контакт2, Контакт3</p>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
