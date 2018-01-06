@@ -1,70 +1,78 @@
-"use strict"
+"use strict";
 
-var gulp = require('gulp');
+const gulp = require('gulp');
+//const wiredep = require('wiredep').stream;
 
-var rename = require('gulp-rename');
-var notify = require('gulp-notify');
-
-var wiredep = require('wiredep').stream;
-var useref = require('gulp-useref');
-var gulpif = require('gulp-if');
-
-var livereload = require('gulp-livereload');
-var connect = require('gulp-connect');
-
-var sass = require('gulp-sass');
-var minifyCss = require('gulp-minify-css');
-var autoprefixer = require('gulp-autoprefixer');
-
-var babel = require('gulp-babel');
-
-gulp.task('default', ['connect', 'html', 'style', 'watch']);
-
-gulp.task('style', () => {
-	gulp.src('app/sass/main.sass')
-		.pipe(sass().on('error', (e) => console.log(e)))
-		.pipe(autoprefixer('last 2 versions', '> 1 %', 'ie 9'))
-		.pipe(rename('main.css'))
-		.pipe(gulp.dest('app/css'))
-		.pipe(connect.reload())
-		.pipe(notify('Done!'));
+//DEV
+lrTask('css', './tasks/css', {
+	src: 'app/sass/main.sass',
+	dst: 'app/css',
 });
 
-gulp.task('html', () => {
-	gulp.src('app/index.html')
-		.pipe(connect.reload());
-})
+lrTask('html', './tasks/html', {
+	src: 'app/index.html',
+});
 
-gulp.task('connect', () => {
-	connect.server({
+lrTask('connect', './tasks/connect', {
+	servOpt: {
 		root: 'app',
 		livereload: true,
-	});
+		port: 8000,
+	}
 });
 
-gulp.task('js', () => {
-	gulp.src('app/js/main.js')
-		.pipe(babel())
-		.pipe(gulp.dest('app/'));
+lrTask('js', './tasks/js', {
+	src: 'app/js/main.js',
+	dst: 'app/',
 });
 
-gulp.task('build', () => {
-	gulp.src('app/index.html')
-		.pipe(useref())
-		.pipe(gulpif('*.js', babel({
-			presets: ['es2015'],
-		})))
-		.pipe(gulpif('*.css', minifyCss()))
-		.pipe(gulp.dest('dist/'));
-	
-	gulp.src('app/favicon.png')
-		.pipe(gulp.dest('dist/'));
-		
-	gulp.src('app/img/**/*.*')
-		.pipe(gulp.dest('dist/img'));
+//BUILD
+lrTask('build:useref', './tasks/build_useref', {
+	src: 'app/index.html',
+	dst: 'dist/',
 });
 
+lrTask('build:clean', './tasks/build_clean', {
+	src: 'dist',
+});
+
+lrTask('build:img', './tasks/build_img', {
+	src: ['app/**/*.{png,jpg,bmp,gif}'],
+	dst: 'dist/',
+});
+
+lrTask('build:connect', './tasks/build_connect', {
+	servOpt: {
+		root: 'dist/',
+		livereload: false,
+		port: 8888,
+	}
+});
+
+gulp.task('build', gulp.series(
+	'build:clean',
+	gulp.parallel('build:useref', 'build:img')
+));
+
+//WATCH
 gulp.task('watch', () => {
-	gulp.watch('app/sass/*', ['style']);
-	gulp.watch('app/index.html', ['html']);
+	gulp.watch('app/sass/*', gulp.parallel('css'));
+	gulp.watch('app/index.html', gulp.parallel('html'));
 });
+
+//DEFAULT
+gulp.task('default', gulp.series(
+	gulp.parallel('css', 'html'),
+	gulp.parallel('connect', 'watch'),
+));
+
+//SYSTEM
+function lrTask(taskName, path, options) {
+	options = options || {};
+	options.taskName = taskName;
+	
+	gulp.task(taskName, function(callback) {
+		let task = require(path).call(this, options);
+		return task(callback);
+	});
+}
