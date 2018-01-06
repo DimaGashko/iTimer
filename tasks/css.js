@@ -2,36 +2,15 @@
 
 const $ = require('gulp-load-plugins')();
 const gulp = require('gulp');
-const combine = require('stream-combiner2').obj;
 
 module.exports = function(options) {
 	return function() {
-		return combine(
-		
-			gulp.src(options.src),
-			$.sass(),
-			$.autoprefixer('last 2 versions', '> 1 %', 'ie 9'),
-			$.rename('main.css'),
-			gulp.dest(options.dst),
-			$.connect.reload()
-		
-		).on('error', $.notify.onError((err) => {
-			return {
-				title: options.taskName,
-				message: err.message,			
-			}			
-		}));
+		return gulp.src(options.src)
+			pipe($.sass())
+			pipe($.autoprefixer('last 2 versions', '> 1 %', 'ie 9'))
+			pipe($.rename('main.css'))
+			pipe(gulp.dest(options.dst))
+			pipe($.connect.reload());
 	}
 }
-/*
-gulpTask(
-	gulp.src(options.src),
-	$.sass(),
-	$.autoprefixer('last 2 versions', '> 1 %', 'ie 9'),
-	$.rename('main.css'),
-	gulp.dest('app/css'),
-	$.connect.reload()
-);
-*/
-
 

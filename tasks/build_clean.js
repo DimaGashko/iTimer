@@ -1,33 +1,11 @@
 "use strict";
 
-const $ = require('gulp-load-plugins')();
 const gulp = require('gulp');
-const combine = require('stream-combiner2').obj;
+const clean = require('gulp-clean')
 
 module.exports = function(options) {
 	return function() {
-		return combine(
-		
-			gulp.src(options.src, {read: false}),
-			$.clean()
-		
-		).on('error', $.notify.onError((err) => {
-			return {
-				title: options.taskName,
-				message: err.message,			
-			}			
-		}));
+		gulp.src(options.src, {read: false})
+		pipe(clean());
 	}
 }
-/*
-gulpTask(
-	gulp.src(options.src),
-	$.sass(),
-	$.autoprefixer('last 2 versions', '> 1 %', 'ie 9'),
-	$.rename('main.css'),
-	gulp.dest('app/css'),
-	$.connect.reload()
-);
-*/
-
-

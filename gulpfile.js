@@ -41,6 +41,11 @@ lrTask('build:img', './tasks/build_img', {
 	dst: 'dist/',
 });
 
+lrTask('build:html', './tasks/build_html', {
+	src: ['dist/**/*.html'],
+	dst: 'dist/',
+});
+
 lrTask('build:connect', './tasks/build_connect', {
 	servOpt: {
 		root: 'dist/',
@@ -51,7 +56,7 @@ lrTask('build:connect', './tasks/build_connect', {
 
 gulp.task('build', gulp.series(
 	'build:clean',
-	gulp.parallel('build:useref', 'build:img')
+	gulp.parallel(gulp.series('build:useref', 'build:html'), 'build:img')
 ));
 
 //WATCH
