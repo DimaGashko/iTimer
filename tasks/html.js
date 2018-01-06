@@ -12,7 +12,7 @@ module.exports = function(options) {
 			.on('error', $.notify.onError((err) => {
 				return {
 					title: 'Jade',
-					massege: err.massege,
+					message: err.message,
 				}
 			}))
 			.pipe($.connect.reload())
