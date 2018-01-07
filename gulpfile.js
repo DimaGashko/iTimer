@@ -1,16 +1,7 @@
-a = 5
-
-"use strict";
+'use strict';
 
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
-
-gulp.task('l', () => {
-	return gulp.src('app/js/main.js')
-		.pipe($.eslint())
-		.pipe($.eslint.format())
-		.pipe($.eslint.failAfterError());
-});
 
 //DEV
 lrTask('css', './tasks/css', {
@@ -41,11 +32,6 @@ lrTask('js', './tasks/js', {
 	src: 'app/js/**/*.js',
 	dst: 'app/js/',
 });
-
-//GIT
-lrTask('lint', './tasks/lint', {
-	src: ['app/js/**/*.js', 'gulpfile.js', 'tasks/**/*.js'],
-})
 
 //BUILD
 lrTask('build:useref', './tasks/build_useref', {
