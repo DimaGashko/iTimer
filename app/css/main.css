@@ -13,66 +13,60 @@ body {
 .section {
   margin: 0; }
 
-.header__container {
-  position: relative;
-  background: #aaa; }
-
-.header__logo {
-  text-align: center;
-  font-size: 72px;
-  padding: 20px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-
-.header__help,
-.header__set {
-  position: absolute;
-  top: 20px;
-  width: 32px;
-  height: 32px;
-  background-image: #333;
-  cursor: pointer;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-  border: none;
-  outline: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none; }
-
-.header__help:hover {
-  -webkit-transform: rotate(-15deg);
-          transform: rotate(-15deg); }
-
-.header__set:hover {
-  -webkit-transform: rotate(15deg);
-          transform: rotate(15deg); }
-
-.header__help:focus {
-  -webkit-transform: rotate(-30deg);
-          transform: rotate(-30deg); }
-
-.header__set:focus {
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg); }
-
-.header__help {
-  left: 10px;
-  background: url(../img/icons/help.svg); }
-
-.header__set {
-  right: 10px;
-  background: url(../img/icons/set.svg); }
-
-.main__container {
-  background: #fff;
-  min-height: 450px;
+.header {
+  background: #aaa;
   position: relative; }
+  .header__help {
+    left: 10px;
+    background-image: url(../img/icons/help.svg);
+    background-color: #fff;
+    border-radius: 50%; }
+  .header__set {
+    right: 10px;
+    background: url(../img/icons/set.svg); }
+  .header__logo {
+    text-align: center;
+    font-size: 72px;
+    padding: 20px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+  .header__help, .header__set {
+    position: absolute;
+    top: 20px;
+    width: 32px;
+    height: 32px;
+    background-image: #333;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    border: none;
+    outline: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+  .header__help:hover {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg); }
+  .header__set:hover {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg); }
+  .header__help:focus {
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg); }
+  .header__set:focus {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg); }
+
+.main {
+  background: #fff; }
+  .main__container {
+    min-height: 450px;
+    position: relative; }
 
 .iTimer-stopwatch .iTimer__stopwatch {
   display: block; }
@@ -208,5 +202,5 @@ body {
 .stopwatch__settime .iTimer__ms {
   width: 140px; }
 
-.footer__container {
+.footer {
   background: #aaa; }

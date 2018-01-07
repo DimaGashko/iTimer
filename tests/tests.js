@@ -11,9 +11,6 @@ describe("ITimerBase", () => {
 			it("formatTime(5, 1) => '5'", () => {
 				assert.strictEqual(formatTime(5, 1), '5');
 			});
-			it("formatTime(29, 1) => '29'", () => {
-				assert.strictEqual(formatTime(29, 1), '29');
-			});
 		});
 		
 		describe("Length: 2", () => {
@@ -25,9 +22,6 @@ describe("ITimerBase", () => {
 			});
 			it("formatTime(29, 2) => '29'", () => {
 				assert.strictEqual(formatTime(29, 2), '29');
-			});
-			it("formatTime(291, 2) => '291'", () => {
-				assert.strictEqual(formatTime(291, 2), '291');
 			});
 		});
 		
@@ -43,9 +37,6 @@ describe("ITimerBase", () => {
 			});
 			it("formatTime(291, 3) => '291'", () => {
 				assert.strictEqual(formatTime(291, 3), '291');
-			});
-			it("formatTime(2910, 3) => '2910'", () => {
-				assert.strictEqual(formatTime(2910, 3), '2910');
 			});
 		});
 
