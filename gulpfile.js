@@ -1,7 +1,6 @@
 "use strict";
 
 const gulp = require('gulp');
-//const wiredep = require('wiredep').stream;
 
 //DEV
 lrTask('css', './tasks/css', {
@@ -29,8 +28,8 @@ lrTask('svgSprite', './tasks/svgSprite', {
 });*/
 
 lrTask('js', './tasks/js', {
-	src: 'app/js/main.js',
-	dst: 'app/',
+	src: 'app/js/**/*.js',
+	dst: 'app/js/',
 });
 
 //BUILD
@@ -74,12 +73,13 @@ gulp.task('build', gulp.series(
 //WATCH
 gulp.task('watch', () => {
 	gulp.watch('app/sass/*', gulp.parallel('css'));
-	gulp.watch('app/index.html', gulp.parallel('html'));
+	gulp.watch('app/jade/**/*.jade', gulp.parallel('html'));
+	gulp.watch('app/js/**/*.js', gulp.parallel('js'));
 });
 
 //DEFAULT
 gulp.task('default', gulp.series(
-	gulp.parallel('css', 'html'),
+	gulp.parallel('css', 'html', 'js'),
 	gulp.parallel('connect', 'watch'),
 ));
 

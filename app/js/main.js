@@ -1,7 +1,7 @@
 ﻿;(function(){
 	"use strict"
 	
-	var els = {
+	var els = { 
 		openHelp: document.querySelector('.header__help'),
 		openSet: document.querySelector('.header__set'),
 		
