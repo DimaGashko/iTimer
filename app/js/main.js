@@ -1,6 +1,6 @@
-﻿;(function(){
-	"use strict"
-	a = 5
+﻿(function(){
+	'use strict';
+	
 	var els = { 
 		openHelp: document.querySelector('.header__help'),
 		openSet: document.querySelector('.header__set'),
@@ -11,12 +11,12 @@
 		iTimer: document.querySelector('.iTimer'),
 		stopwatch: document.querySelector('.iTimer__stopwatch'),
 		timer: document.querySelector('.iTimer__timer'),
-	}
+	};
 	
 	var KEYS = {
 		stopwatch:  83,
 		timer:  84,
-	}
+	};
 	
 	//help
 	els.openHelp.addEventListener('click', () => {
@@ -46,13 +46,13 @@
 		
 		switch (event.keyCode) {
 			
-			case KEYS.stopwatch:
-				selectType('stopwatch');
-				break;
-			
-			case KEYS.timer:
-				selectType('timer');
-			
+		case KEYS.stopwatch:
+			selectType('stopwatch');
+			break;
+		
+		case KEYS.timer:
+			selectType('timer');
+		
 		}
 	});
 	
@@ -68,7 +68,7 @@
 		else createTimer(type);
 		
 		localStorage.iTimerType = type;
-	}	
+	}
 	
 	function createTimer(type) {
 		if (type === 'stopwatch') {

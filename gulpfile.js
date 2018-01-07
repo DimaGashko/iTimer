@@ -1,6 +1,16 @@
+a = 5
+
 "use strict";
 
 const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
+
+gulp.task('l', () => {
+	return gulp.src('app/js/main.js')
+		.pipe($.eslint())
+		.pipe($.eslint.format())
+		.pipe($.eslint.failAfterError());
+});
 
 //DEV
 lrTask('css', './tasks/css', {

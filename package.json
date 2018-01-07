@@ -1,11 +1,12 @@
 {
-  "name": "iTimer",
+  "name": "itimer",
   "version": "0.0.1",
   "description": "Таймер и секундомер с сохранением работы при обновлении страницы",
   "main": "gulpfile.js",
   "author": "DimaGashko",
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "github:gulpjs/gulp#4.0",
@@ -26,5 +27,9 @@
     "gulp-svg-sprite": "^1.3.7",
     "gulp-svgmin": "^1.2.4",
     "gulp-useref": "^3.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DimaGashko/timer.git"
   }
 }
