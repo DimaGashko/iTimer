@@ -32,6 +32,11 @@ lrTask('js', './tasks/js', {
 	dst: 'app/js/',
 });
 
+//GIT
+lrTask('lint', './tasks/lint', {
+	src: ['app/js/**/*.js', 'gulpfile.js', 'tasks/**/*.js'],
+})
+
 //BUILD
 lrTask('build:useref', './tasks/build_useref', {
 	src: 'app/index.html',

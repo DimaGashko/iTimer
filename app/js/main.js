@@ -1,6 +1,6 @@
 ﻿;(function(){
 	"use strict"
-	
+	a = 5
 	var els = { 
 		openHelp: document.querySelector('.header__help'),
 		openSet: document.querySelector('.header__set'),
