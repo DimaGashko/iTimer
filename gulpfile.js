@@ -10,7 +10,7 @@ lrTask('css', './tasks/css', {
 });
 
 lrTask('html', './tasks/html', {
-	src: 'app/jade/index.jade',
+	src: 'app/jade/index.jade',  
 	dst: 'app/',
 });
 
