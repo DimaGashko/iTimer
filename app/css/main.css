@@ -34,6 +34,7 @@ body {
     padding: 20px; }
   .header__logo {
     text-align: center;
+    font-family: cursive;
     font-size: 72px;
     padding: 20px;
     -webkit-user-select: none;
@@ -114,7 +115,8 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  margin-top: 30px !important; }
 
 .iTimer__but:focus {
   -webkit-box-shadow: 0 2px 8px 2px #797777;
@@ -134,7 +136,8 @@ body {
   text-align: center; }
 
 .iTimer__time {
-  font-size: 0; }
+  font-size: 0;
+  font-family: arial; }
 
 .iTimer__timecomp {
   font-size: 72px;
