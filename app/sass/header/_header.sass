@@ -1,6 +1,11 @@
 ﻿.header 
    background: $color1;
    position: relative;
+   min-height: 150px;
+   
+   &__container 
+      max-width: 100%
+      padding: 20px;
       
    &__logo 
       text-align: center;
@@ -10,45 +15,50 @@
       cursor: pointer;
       transition: color 3s;
       color: $color3
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       
       &:active
          color: $color2;
-         transition: color 30s;
-
-   &__controls_conrainer
-      top: 10px;
-      right: 10px;
-      position: absolute;
+         transition: color 30s;      
+         
+   &__menu
+      list-style: none;
+      padding: 0;
+      margin: 0;
       
-   &__control
-      @extend %basebutton
-   
-      background-color: $color3;
-      border-radius: 50%;
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-      transition: transform 0.3s;
-      border: none;
-      display: block;
-      margin-top: 5px;
-      transform: rotate(0);
+      &item
+         float: left;
+         margin-left: 10px;
+         width: 28px;
+         height: 28px;
+         
+         &:first-child
+            margin-left: 0;
+         
       
-      &:first-child
-         margin-top: 0;
-      
-      &:hover 
-         transform: rotate(15deg);
-      &:focus 
-        transform: rotate(20deg);
-      
-   &__help
-      background-image: url(../img/icons/help.svg);
-      
-   &__set 
-      background-image: url(../img/icons/set.svg);
-
-      
+      &item .icon
+         width: 100%;
+         height: 100%;
+         display: block;
+         font-size: 16px;
+         line-height: 28px;
+         text-align: center;
+         border-radius: 50%;
+         background: $color3;
+         color: $color2;
+         cursor: pointer;
+         transition: color .4s, background 1s;
+         
+         &:hover
+            transition: color .4s;
+            background: transparent;
+            color: $color3;
+         
+         
+         
       
       
       

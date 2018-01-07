@@ -5,8 +5,8 @@
       openHelp: document.querySelector('.header__help'),
       openSet: document.querySelector('.header__set'),
       
-      selectStopwatch: document.querySelector('.iTimer__selectStopwatch'),
-      selectTimer: document.querySelector('.iTimer__selectTimer'),
+      selectStopwatch: document.querySelector('.selectStopwatch'),
+      selectTimer: document.querySelector('.selectTimer'),
       
       iTimer: document.querySelector('.iTimer'),
       stopwatch: document.querySelector('.iTimer__stopwatch'),
