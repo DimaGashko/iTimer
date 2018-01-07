@@ -67,10 +67,7 @@
    }
    
    fn.renderTime = function() {
-      this.els.h.innerHTML = this.formatTime(this.h, 2);
-      this.els.m.innerHTML = this.formatTime(this.m, 2);
-      this.els.s.innerHTML = this.formatTime(this.s, 2);
-      this.els.ms.innerHTML = this.formatTime(this.ms, 3);
+      this.els.time.innerHTML = this.getTime();
    }
    
    fn.formatTime = function(value, length) {
@@ -110,10 +107,7 @@
       var r = this.els.root = this.els.iTimerRoot
          .querySelector(`.iTimer__${this.iTimerType}`);
       
-      this.els.h = r.querySelector('.iTimer__h');
-      this.els.m = r.querySelector('.iTimer__m');
-      this.els.s = r.querySelector('.iTimer__s');
-      this.els.ms = r.querySelector('.iTimer__ms');
+      this.els.time = r.querySelector('.iTimer__time');
       
       this.els.reset = this.els.root.querySelector('.iTimer__reset');
       this.els.start = this.els.root.querySelector('.iTimer__start');
@@ -130,6 +124,13 @@
       
       this._running = false;
       this._disable = false;
+   }
+   
+   fn.getTime = function() {
+      return this.h + ':'
+         + this.formatTime(this.m, 2) + ':'
+         + this.formatTime(this.s, 2) + '.'
+         + this.formatTime(this.ms, 3);
    }
    
    fn.iTimerType = '';

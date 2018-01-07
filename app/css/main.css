@@ -14,8 +14,8 @@ html, body {
   height: 100%; }
 
 body {
-  background: #646464;
-  color: #666; }
+  background: #64648c;
+  color: red; }
 
 .container {
   max-width: 940px;
@@ -25,8 +25,20 @@ body {
 .section {
   margin: 0; }
 
+.iTimer__control {
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  border: none; }
+  .iTimer__control:focus {
+    -webkit-box-shadow: 0 2px 8px 2px #797777;
+            box-shadow: 0 2px 8px 2px #797777; }
+
 .header {
-  background: #646464;
+  background: #64648c;
   position: relative;
   min-height: 150px; }
   .header__container {
@@ -51,7 +63,7 @@ body {
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
     .header__logo:active {
-      color: #666;
+      color: red;
       -webkit-transition: color 30s;
       transition: color 30s; }
   .header__menu {
@@ -74,7 +86,7 @@ body {
       text-align: center;
       border-radius: 50%;
       background: #eee;
-      color: #666;
+      color: #64648c;
       cursor: pointer;
       -webkit-transition: color .4s, background 1s;
       transition: color .4s, background 1s; }
@@ -86,10 +98,41 @@ body {
 
 .mainsection {
   background: #eee;
+  color: #64648c;
   position: relative; }
   .mainsection__container {
     min-height: 60vh;
     padding: 50px; }
+
+.iTimer {
+  text-align: center; }
+  .iTimer__controls_container {
+    margin-top: 30px;
+    margin-right: -30px; }
+  .iTimer__control {
+    display: none;
+    color: #eee;
+    background: #64648c;
+    border: 2px solid #64648c;
+    font-family: calibri, arial;
+    border-radius: 2px;
+    font-size: 18px;
+    padding: 6px 0px;
+    text-align: center;
+    width: 150px;
+    margin-right: 30px;
+    -webkit-transition: background .4s;
+    transition: background .4s;
+    font-weight: bold; }
+    .iTimer__control:hover {
+      background: transparent;
+      color: #64648c; }
+  .iTimer__lapslist {
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+    font-size: 20px;
+    list-style: none; }
 
 .iTimer-stopwatch .iTimer__stopwatch {
   display: block; }
@@ -103,81 +146,13 @@ body {
 .iTimer-timer .iTimer__selectTimer {
   font-weight: bold; }
 
-.iTimer__but {
-  padding: 5px 15px;
-  color: #666;
-  font-family: "Times New Roman";
-  background: #dddddd;
-  background: -webkit-linear-gradient(top, #eee, #999);
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  margin-top: 30px !important; }
-
-.iTimer__but:focus {
-  -webkit-box-shadow: 0 2px 8px 2px #797777;
-          box-shadow: 0 2px 8px 2px #797777;
-  outline: none;
-  border: none; }
-
-.iTimer__but:hover {
-  color: #666; }
-
-.iTimer__but:active {
-  background: #dddddd;
-  background: -webkit-linear-gradient(bottom, #eee, #999); }
-
-.iTimer__type {
-  margin-top: 50px;
-  text-align: center; }
-
 .iTimer__time {
-  font-size: 0;
-  font-family: arial; }
-
-.iTimer__timecomp {
-  font-size: 72px;
-  margin-left: 5px;
-  display: inline-block;
-  text-align: center; }
-
-.iTimer__timecomp:first-child {
-  margin-left: 0; }
-
-.iTimer__h,
-.iTimer__m,
-.iTimer__s {
-  min-width: 95px; }
-
-.iTimer__ms {
-  min-width: 110px; }
-
-.iTimer__timecomp:after {
-  margin-left: 5px; }
-
-.iTimer__h:after,
-.iTimer__m:after {
-  content: ':'; }
-
-.iTimer__s:after {
-  content: '.'; }
+  font-size: 80px !important;
+  font-family: calibri, arial;
+  color: #64648c; }
 
 .iTimer__stopwatch {
   display: none; }
-
-.iTimer__control {
-  display: none;
-  padding: 6px 0px;
-  margin-left: 10px;
-  text-align: center;
-  width: 150px; }
-
-.iTimer__control:first-child {
-  margin-left: 0; }
 
 .iTimer__stopwatch-paused .iTimer__reset,
 .iTimer__stopwatch-paused .iTimer__start {
@@ -186,11 +161,6 @@ body {
 .iTimer__stopwatch-running .iTimer__lap,
 .iTimer__stopwatch-running .iTimer__stop {
   display: inline-block; }
-
-.iTimer__lapslist {
-  text-align: center;
-  font-size: 20px;
-  list-style: none; }
 
 /* Timer */
 .iTimer__timer {
@@ -205,15 +175,7 @@ body {
 .iTimer__timer-running .iTimer__stop {
   display: inline-block; }
 
-.stopwatch__settime .iTimer__h,
-.stopwatch__settime .iTimer__m,
-.stopwatch__settime .iTimer__s {
-  width: 115px; }
-
-.stopwatch__settime .iTimer__ms {
-  width: 140px; }
-
 .footer {
-  background: #646464; }
+  background: #64648c; }
   .footer__container {
     color: #eee; }

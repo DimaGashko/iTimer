@@ -1,4 +1,43 @@
-﻿.iTimer-stopwatch .iTimer__stopwatch
+﻿.iTimer
+   $margin: 30px;
+
+   text-align: center;
+   
+   &__controls_container
+      margin-top: $margin;
+      margin-right: -$margin;
+
+   &__control
+      @extend %basebutton
+   
+      display: none;
+      color: $color3;
+      background: $color1;
+      border: 2px solid $color1;
+      font-family: calibri, arial; 
+      border-radius: 2px;
+      font-size: 18px
+      padding: 6px 0px;
+      text-align: center;
+      width: 150px;
+      margin-right: 30px;
+      transition: background .4s;
+      font-weight: bold; 
+         
+      &:hover 
+         background: transparent;
+         color: $color1
+      
+      &:active
+   
+   &__lapslist 
+      margin: 0;
+      padding: 0;
+      margin-top: $margin;
+      font-size: 20px;
+      list-style: none;
+
+.iTimer-stopwatch .iTimer__stopwatch
    display: block;
 
 .iTimer-stopwatch .iTimer__selectStopwatch
@@ -10,123 +49,21 @@
 .iTimer-timer .iTimer__selectTimer
    font-weight: bold; 
 
-.iTimer__but 
-   padding: 5px 15px;
-   color: $color2;
-   font-family: "Times New Roman";
-   background: #dddddd; 
-   background: -webkit-linear-gradient(top,#eee,#999);
-   border: 1px solid #ddd;
-   border-radius: 2px;
-   cursor: pointer;
-   user-select: none; 
-   margin-top: 30px!important; //
-
-
-.iTimer__but:focus 
-   box-shadow: 0 2px 8px 2px #797777;
-   outline: none;
-   border: none;
-
-
-.iTimer__but:hover 
-   color: $color2;
-
-
-.iTimer__but:active 
-   background: #dddddd; 
-   background: -webkit-linear-gradient(bottom,#eee,#999);
-
-
-.iTimer__selectTimer,
-.iTimer__selectStopwatch 
-   //position: absolute;
-   //top: 10px;
-
-
-.iTimer__selectStopwatch 
-   //left: 10px;
-
-
-.iTimer__selectTimer 
-   //right: 10px;
-
-
-.iTimer__type 
-   margin-top: 50px;
-   text-align: center;
-
-
 .iTimer__time 
-   font-size: 0;
-   font-family: arial;
-
-
-.iTimer__timecomp 
-   font-size: 72px;
-   margin-left: 5px;
-   display: inline-block;
-   text-align: center;
-
-
-.iTimer__timecomp:first-child 
-   margin-left: 0;
-
-
-.iTimer__h,
-.iTimer__m,
-.iTimer__s 
-   min-width: 95px;
-
-
-.iTimer__ms 
-   min-width: 110px;
-
-
-.iTimer__timecomp:after 
-   margin-left: 5px;
-
-
-.iTimer__h:after,
-.iTimer__m:after 
-   content: ':';
-
-
-.iTimer__s:after 
-   content: '.';
-
+   font-size: 80px!important;
+   font-family: calibri, arial
+   color: $color1
 
 .iTimer__stopwatch 
    display: none;
-
-
-.iTimer__control 
-   display: none;
-   padding: 6px 0px;
-   margin-left: 10px;
-   text-align: center;
-   width: 150px;
-
-
-.iTimer__control:first-child 
-   margin-left: 0;
-
-
+   
 .iTimer__stopwatch-paused .iTimer__reset,
 .iTimer__stopwatch-paused .iTimer__start 
       display: inline-block;
 
-
 .iTimer__stopwatch-running .iTimer__lap,
 .iTimer__stopwatch-running .iTimer__stop 
-      display: inline-block;
-
-
-.iTimer__lapslist 
-   text-align: center;
-   font-size: 20px;
-   list-style: none;
-   
+      display: inline-block;  
 
 /* Timer */
 .iTimer__timer 
@@ -143,17 +80,3 @@
 
 .iTimer__timer-running .iTimer__stop 
    display: inline-block;
-
-
-.stopwatch__settime .iTimer__timecomp 
-   
-
-
-.stopwatch__settime .iTimer__h,
-.stopwatch__settime .iTimer__m,
-.stopwatch__settime .iTimer__s 
-   width: 115px;
-
-
-.stopwatch__settime .iTimer__ms 
-   width: 140px;

@@ -36,17 +36,12 @@
           <div class="iTimer">
             <!--stopwatch-->
             <div class="iTimer__type iTimer__stopwatch">
-              <div class="iTimer__time stopwatch__time">
-                <div class="iTimer__timecomp iTimer__h">00</div>
-                <div class="iTimer__timecomp iTimer__m">00</div>
-                <div class="iTimer__timecomp iTimer__s">00</div>
-                <div class="iTimer__timecomp iTimer__ms">000</div>
-              </div>
-              <div class="iTimer__controls">
-                <button class="iTimer__but iTimer__control iTimer__reset">Сброс (alt + R)</button>
-                <button class="iTimer__but iTimer__control iTimer__start">Старт (пробел)</button>
-                <button class="iTimer__but iTimer__control iTimer__lap">Lap (alt + L)</button>
-                <button class="iTimer__but iTimer__control iTimer__stop">Стоп (пробел)                     </button>
+              <div class="iTimer__time stopwatch__time">0:00:00.000</div>
+              <div class="iTimer__controls_container"> 
+                <button class="iTimer__control iTimer__reset">Сброс (alt + R)</button>
+                <button class="iTimer__control iTimer__start">Старт (пробел)</button>
+                <button class="iTimer__control iTimer__lap">Lap (alt + L)</button>
+                <button class="iTimer__control iTimer__stop">Стоп (пробел)                     </button>
               </div>
               <ul class="iTimer__lapslist"></ul>
             </div>
@@ -58,19 +53,14 @@
                 <input class="iTimer__timecomp iTimer__s" type="number" min="0" max="59" step="1" value="0">
                 <input class="iTimer__timecomp iTimer__ms" type="number" min="0" max="999" step="1" value="0">
               </div>
-              <div class="iTimer__time">stopwatch__time
-                <div class="iTimer__timecomp iTimer__h">00</div>
-                <div class="iTimer__timecomp iTimer__m">00</div>
-                <div class="iTimer__timecomp iTimer__s">00</div>
-                <div class="iTimer__timecomp iTimer__ms">000</div>
-              </div>
-              <div class="iTimer__controls">
-                <button class="iTimer__but iTimer__control iTimer__reset">Сброс (alt + R)</button>
-                <button class="iTimer__but iTimer__control iTimer__start">Старт (пробел)</button>
-                <button class="iTimer__but iTimer__control iTimer__stop">Стоп (пробел)</button>
+              <div class="iTimer__time">stopwatch__time</div>
+              <div class="iTimer__controls_container">
+                <button class="iTimer__control iTimer__reset">Сброс (alt + R)</button>
+                <button class="iTimer__control iTimer__start">Старт (пробел)</button>
+                <button class="iTimer__control iTimer__stop">Стоп (пробел)</button>
               </div>
               <div class="iTimer__templatesContainer">
-                <!--button.iTimer__but.iTimer__newtemplate-->
+                <!--button.iTimer__newtemplate-->
                 <div class="iTimer__templates"></div>
               </div>
             </div>

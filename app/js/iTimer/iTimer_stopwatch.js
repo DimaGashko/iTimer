@@ -48,10 +48,7 @@
    fn.lap = function() {
       if (!this._running) return;
       
-      var lap = this.formatTime(this.h, 2) + ':'
-         + this.formatTime(this.m, 2) + ':'
-         + this.formatTime(this.s, 2) + '.'
-         + this.formatTime(this.ms, 3);
+      var lap = this.getTime();
       
       this.laps.push(lap);
       
