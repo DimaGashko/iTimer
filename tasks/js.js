@@ -6,11 +6,11 @@ const gulp = require('gulp');
 module.exports = function(options) {
 	return function() {
 		return gulp.src(options.src)
-			.pipe($.jslint({
+			.pipe($.eslint({
 				white: true,
 				single: true,
 			}))
-			.pipe($.jslint.reporter('default', {}))
+			.pipe($.eslint.format())
 			.on('error', $.notify.onError((err) => {
 				return {
 					title: 'lint',
