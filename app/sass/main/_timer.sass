@@ -12,7 +12,7 @@
 
 .iTimer__but 
    padding: 5px 15px;
-   color: #444;
+   color: $color2;
    font-family: "Times New Roman";
    background: #dddddd; 
    background: -webkit-linear-gradient(top,#eee,#999);
@@ -20,6 +20,7 @@
    border-radius: 2px;
    cursor: pointer;
    user-select: none;
+   display: none!important
 
 
 .iTimer__but:focus 
@@ -29,7 +30,7 @@
 
 
 .iTimer__but:hover 
-   color: #666;
+   color: $color2;
 
 
 .iTimer__but:active 
@@ -58,6 +59,10 @@
 
 .iTimer__time 
    font-size: 0;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate3d(-50%, -50%, 0);
 
 
 .iTimer__timecomp 
@@ -92,11 +97,6 @@
 
 .iTimer__s:after 
    content: '.';
-
-
-.iTimer__time 
-   margin: 40px;
-
 
 
 .iTimer__stopwatch 

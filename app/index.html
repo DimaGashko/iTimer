@@ -23,24 +23,20 @@
       <header class="section header">
         <div class="container header__container">
           <div class="header__logo">iTimer</div>
-          <button class="header__help"></button>
-          <button class="header__set"></button>
+          <div class="header__controls_conrainer">
+            <button class="header__control header__set" title="Настройки"></button>
+            <button class="header__control header__help" title="Помощь"></button>
+          </div>
         </div>
       </header>
-      <section class="section main">
-        <div class="container main__container">
+      <main class="section mainsection">
+        <div class="container mainsection__container">
           <!--iTimer-->
           <div class="iTimer">
             <button class="iTimer__but iTimer__selectStopwatch">Секундомер (alt + s)</button>
             <button class="iTimer__but iTimer__selectTimer">Таймер (alt + t)</button>
             <!--stopwatch-->
             <div class="iTimer__type iTimer__stopwatch">
-              <div class="iTimer__time stopwatch__time">
-                <div class="iTimer__timecomp iTimer__h">00</div>
-                <div class="iTimer__timecomp iTimer__m">00</div>
-                <div class="iTimer__timecomp iTimer__s">00</div>
-                <div class="iTimer__timecomp iTimer__ms">000</div>
-              </div>
               <div class="iTimer__controls">
                 <div class="iTimer__controlsPaused">
                   <button class="iTimer__but iTimer__control iTimer__reset">Сброс (alt + R)</button>
@@ -50,6 +46,12 @@
                   <button class="iTimer__but iTimer__control iTimer__lap">Lap (alt + L)</button>
                   <button class="iTimer__but iTimer__control iTimer__stop">Стоп (пробел)</button>
                 </div>
+              </div>
+              <div class="iTimer__time stopwatch__time">
+                <div class="iTimer__timecomp iTimer__h">00</div>
+                <div class="iTimer__timecomp iTimer__m">00</div>
+                <div class="iTimer__timecomp iTimer__s">00</div>
+                <div class="iTimer__timecomp iTimer__ms">000</div>
               </div>
               <ul class="iTimer__lapslist"></ul>
             </div>
@@ -79,7 +81,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </main>
       <footer class="section footer">
         <div class="container footer__container">
           <p class="footer__hint">Подсказка: если во время работы iTimer-а вы закроете страницу, просто откройте ее и его работа возобновится.</p>

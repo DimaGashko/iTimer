@@ -2,7 +2,7 @@ html, body {
   height: 100%; }
 
 body {
-  background: #333;
+  background: #777;
   color: #666; }
 
 .container {
@@ -13,17 +13,19 @@ body {
 .section {
   margin: 0; }
 
+.header__control {
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .header__control:focus {
+    -webkit-box-shadow: 0 2px 8px 2px #797777;
+            box-shadow: 0 2px 8px 2px #797777; }
+
 .header {
-  background: #aaa;
+  background: #777;
   position: relative; }
-  .header__help {
-    left: 10px;
-    background-image: url(../img/icons/help.svg);
-    background-color: #fff;
-    border-radius: 50%; }
-  .header__set {
-    right: 10px;
-    background: url(../img/icons/set.svg); }
   .header__logo {
     text-align: center;
     font-size: 72px;
@@ -31,42 +33,52 @@ body {
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
-            user-select: none; }
-  .header__help, .header__set {
-    position: absolute;
-    top: 20px;
+            user-select: none;
+    cursor: pointer;
+    -webkit-transition: color 3s;
+    transition: color 3s;
+    color: #eee; }
+    .header__logo:active {
+      color: #666;
+      -webkit-transition: color 30s;
+      transition: color 30s; }
+  .header__controls_conrainer {
+    top: 10px;
+    right: 10px;
+    position: absolute; }
+  .header__control {
+    background-color: #eee;
+    border-radius: 50%;
     width: 32px;
     height: 32px;
-    background-image: #333;
     cursor: pointer;
     -webkit-transition: -webkit-transform 0.3s;
     transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
     transition: transform 0.3s, -webkit-transform 0.3s;
     border: none;
-    outline: none;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none; }
-  .header__help:hover {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg); }
-  .header__set:hover {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg); }
-  .header__help:focus {
-    -webkit-transform: rotate(-30deg);
-            transform: rotate(-30deg); }
-  .header__set:focus {
-    -webkit-transform: rotate(30deg);
-            transform: rotate(30deg); }
+    display: block;
+    margin-top: 5px;
+    -webkit-transform: rotate(0);
+            transform: rotate(0); }
+    .header__control:first-child {
+      margin-top: 0; }
+    .header__control:hover {
+      -webkit-transform: rotate(15deg);
+              transform: rotate(15deg); }
+    .header__control:focus {
+      -webkit-transform: rotate(20deg);
+              transform: rotate(20deg); }
+  .header__help {
+    background-image: url(../img/icons/help.svg); }
+  .header__set {
+    background-image: url(../img/icons/set.svg); }
 
-.main {
-  background: #fff; }
-  .main__container {
-    min-height: 450px;
-    position: relative; }
+.mainsection {
+  background: #eee;
+  position: relative; }
+  .mainsection__container {
+    min-height: 60vh; }
 
 .iTimer-stopwatch .iTimer__stopwatch {
   display: block; }
@@ -82,7 +94,7 @@ body {
 
 .iTimer__but {
   padding: 5px 15px;
-  color: #444;
+  color: #666;
   font-family: "Times New Roman";
   background: #dddddd;
   background: -webkit-linear-gradient(top, #eee, #999);
@@ -92,7 +104,8 @@ body {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  display: none !important; }
 
 .iTimer__but:focus {
   -webkit-box-shadow: 0 2px 8px 2px #797777;
@@ -123,7 +136,12 @@ body {
   text-align: center; }
 
 .iTimer__time {
-  font-size: 0; }
+  font-size: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0); }
 
 .iTimer__timecomp {
   font-size: 72px;
@@ -151,9 +169,6 @@ body {
 
 .iTimer__s:after {
   content: '.'; }
-
-.iTimer__time {
-  margin: 40px; }
 
 .iTimer__stopwatch {
   display: none; }
@@ -203,4 +218,6 @@ body {
   width: 140px; }
 
 .footer {
-  background: #aaa; }
+  background: #777; }
+  .footer__container {
+    color: #eee; }

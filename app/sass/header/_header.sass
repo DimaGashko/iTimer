@@ -1,54 +1,54 @@
 ﻿.header 
-   background: #aaa;
+   background: $color1;
    position: relative;
-
-   &__help 
-      left: 10px;
-      background-image: url(../img/icons/help.svg);
-      background-color: #fff;
-      border-radius: 50%;
-
-
-   &__set 
-      right: 10px;
-      background: url(../img/icons/set.svg);
-   
-   &__container 
       
-
-
    &__logo 
       text-align: center;
       font-size: 72px;
       padding: 20px;
       user-select: none;
+      cursor: pointer;
+      transition: color 3s;
+      color: $color3
+      
+      &:active
+         color: $color2;
+         transition: color 30s;
 
-
-   &__help,
-   &__set 
+   &__controls_conrainer
+      top: 10px;
+      right: 10px;
       position: absolute;
-      top: 20px;
+      
+   &__control
+      @extend %basebutton
+   
+      background-color: $color3;
+      border-radius: 50%;
       width: 32px;
       height: 32px;
-      background-image: #333;
       cursor: pointer;
       transition: transform 0.3s;
       border: none;
-      outline: none;
-      user-select: none;
+      display: block;
+      margin-top: 5px;
+      transform: rotate(0);
+      
+      &:first-child
+         margin-top: 0;
+      
+      &:hover 
+         transform: rotate(15deg);
+      &:focus 
+        transform: rotate(20deg);
+      
+   &__help
+      background-image: url(../img/icons/help.svg);
+      
+   &__set 
+      background-image: url(../img/icons/set.svg);
 
-
-   &__help:hover 
-      transform: rotate(-15deg);
-
-
-   &__set:hover 
-      transform: rotate(15deg);
-
-
-   &__help:focus 
-      transform: rotate(-30deg);
-
-
-   &__set:focus 
-      transform: rotate(30deg);
+      
+      
+      
+      

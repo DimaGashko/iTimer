@@ -29,11 +29,12 @@ html
          header.section.header
             .container.header__container
                .header__logo iTimer
-               button.header__help
-               button.header__set
+               .header__controls_conrainer
+                  button.header__control.header__set(title="Настройки")
+                  button.header__control.header__help(title="Помощь")
    
-         section.section.main
-            .container.main__container
+         main.section.mainsection
+            .container.mainsection__container
             
                //iTimer
                .iTimer
@@ -42,12 +43,6 @@ html
                   
                   //stopwatch
                   .iTimer__type.iTimer__stopwatch
-                     .iTimer__time.stopwatch__time
-                        .iTimer__timecomp.iTimer__h 00
-                        .iTimer__timecomp.iTimer__m 00
-                        .iTimer__timecomp.iTimer__s 00
-                        .iTimer__timecomp.iTimer__ms 000
-                     
                      .iTimer__controls
                         .iTimer__controlsPaused
                            button.iTimer__but.iTimer__control.iTimer__reset Сброс (alt + R)
@@ -57,6 +52,13 @@ html
                            button.iTimer__but.iTimer__control.iTimer__lap Lap (alt + L)
                            button.iTimer__but.iTimer__control.iTimer__stop Стоп (пробел)
                         
+                     .iTimer__time.stopwatch__time
+                        .iTimer__timecomp.iTimer__h 00
+                        .iTimer__timecomp.iTimer__m 00
+                        .iTimer__timecomp.iTimer__s 00
+                        .iTimer__timecomp.iTimer__ms 000
+                     
+                     
                      ul.iTimer__lapslist
                   
                   //timer
