@@ -78,7 +78,7 @@
    }
    
    fn.updateTime = function() {
-      var allMs = (Date.now() - this.timeStart) * 5000222;
+      var allMs = (Date.now() - this.timeStart);
       var date = new Date(allMs);
       
       this.m = date.getUTCMinutes();
