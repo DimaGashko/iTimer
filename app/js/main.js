@@ -5,8 +5,8 @@
       openHelp: document.querySelector('.header__help'),
       openSet: document.querySelector('.header__set'),
       
-      selectStopwatch: document.querySelector('.selectStopwatch'),
-      selectTimer: document.querySelector('.selectTimer'),
+      select_stopwatch: document.querySelector('.select_stopwatch'),
+      select_timer: document.querySelector('.select_timer'),
       
       iTimer: document.querySelector('.iTimer'),
       stopwatch: document.querySelector('.iTimer__stopwatch'),
@@ -33,11 +33,11 @@
    
    selectType(localStorage.iTimerType || 'stopwatch');
    
-   els.selectStopwatch.addEventListener('click', () => {
+   els.select_stopwatch.addEventListener('click', () => {
       selectType('stopwatch');
    });
    
-   els.selectTimer.addEventListener('click', () => {
+   els.select_timer.addEventListener('click', () => {
       selectType('timer');
    });
    
@@ -61,6 +61,9 @@
       
       els.iTimer.classList.remove(`iTimer-${prevType}`);
       els.iTimer.classList.add(`iTimer-${type}`);
+      
+      els[`select_${prevType}`].classList.remove('header__menuitem-select');
+      els[`select_${type}`].classList.add('header__menuitem-select');
       
       if (timers[prevType]) timers[prevType].setDisable(true);
       

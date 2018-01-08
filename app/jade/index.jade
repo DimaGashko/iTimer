@@ -31,10 +31,10 @@ html
                .header__logo iTimer
                
                ul.header__menu 
-                  li.header__menuitem: a.selectStopwatch(title="Секундомер (alt + s)"): i.icon &#xe802;
-                  li.header__menuitem: a.selectTimer(title="Таймер (alt + t)"): i.icon &#xe803;
-                  li.header__menuitem: a.header__set(title="Настройки"): i.icon &#xe804; 
-                  li.header__menuitem: a.header__help(title="Справка"): i.icon &#xe800;
+                  li.header__menuitem.select_stopwatch: a(title="Секундомер (alt + s)"): i.icon &#xe802;
+                  li.header__menuitem.select_timer: a(title="Таймер (alt + t)"): i.icon &#xe803;
+                  li.header__menuitem.header__set: a(title="Настройки"): i.icon &#xe804; 
+                  li.header__menuitem.header__help: a(title="Справка"): i.icon &#xe800;
    
          main.section.mainsection
             .container.mainsection__container 
