@@ -163,8 +163,8 @@
    fn._getElements = function() {
       fnBase._getElements.apply(this, arguments);
       
-      this.els.lap = this.els.root.querySelector('.iTimer__lap');
-      this.els.lapsList = this.els.root.querySelector('.iTimer__lapslist');
+      this.els.lap = this.els.root.querySelector(`.${this.iTimerType}__lap`);
+      this.els.lapsList = this.els.root.querySelector(`.${this.iTimerType}__lapslist`);
    }
    
    fn._createParametrs = function() {

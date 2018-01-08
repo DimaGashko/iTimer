@@ -41,31 +41,31 @@ html
                .iTimer
                
                   //stopwatch
-                  .iTimer__type.iTimer__stopwatch
+                  .iTimer__type.stopwatch
                      .iTimer__time.stopwatch__time 0:00:00.000
                         
                      .iTimer__controls_container 
-                           button.iTimer__control.iTimer__reset Сброс (alt + R)
-                           button.iTimer__control.iTimer__start Старт (пробел)
-                           button.iTimer__control.iTimer__lap Lap (alt + L)
-                           button.iTimer__control.iTimer__stop Стоп (пробел)                     
+                           button.iTimer__control.stopwatch__reset Сброс (alt + R)
+                           button.iTimer__control.stopwatch__start Старт (пробел)
+                           button.iTimer__control.stopwatch__lap Lap (alt + L)
+                           button.iTimer__control.stopwatch__stop Стоп (пробел)                     
                      
-                     ul.iTimer__lapslist
+                     ul.stopwatch__lapslist
                   
                   //timer
-                  .iTimer__type.iTimer__timer
-                     .iTimer__time.stopwatch__settime
-                        input.iTimer__timecomp.iTimer__h(type="number", min="0", max="99", step="1", value="0")
-                        input.iTimer__timecomp.iTimer__m(type="number", min="0", max="59", step="1", value="0")
-                        input.iTimer__timecomp.iTimer__s(type="number", min="0", max="59", step="1", value="0")
-                        input.iTimer__timecomp.iTimer__ms(type="number", min="0", max="999", step="1", value="0")
+                  .iTimer__type.timer.timer-set
+                     .iTimer__time.timer__set_container
+                        input.timer__set.timer__seth(type="number", min="0", max="99", step="1", value="0")
+                        input.timer__set.timer__setm(type="number", min="0", max="59", step="1", value="0")
+                        input.timer__set.timer__sets(type="number", min="0", max="59", step="1", value="0")
+                        input.timer__set.timer__setms(type="number", min="0", max="999", step="1", value="0")
                      
-                     .iTimer__time stopwatch__time
+                     .iTimer__time.timer__time 0:00:00.000
                      
                      .iTimer__controls_container
-                        button.iTimer__control.iTimer__reset Сброс (alt + R)
-                        button.iTimer__control.iTimer__start Старт (пробел)
-                        button.iTimer__control.iTimer__stop Стоп (пробел)
+                        button.iTimer__control.timer__reset Сброс (alt + R)
+                        button.iTimer__control.timer__start Старт (пробел)
+                        button.iTimer__control.timer__stop Стоп (пробел)
                      
                      .iTimer__templatesContainer
                         //button.iTimer__newtemplate

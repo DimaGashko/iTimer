@@ -17,7 +17,8 @@ html, body {
 
 body {
   background: #64648c;
-  color: #b46464; }
+  color: #b46464;
+  font-family: calibri, arial; }
 
 .container {
   max-width: 940px;
@@ -111,6 +112,16 @@ body {
 
 .iTimer {
   text-align: center; }
+  .iTimer__type {
+    display: none; }
+  .iTimer-stopwatch .stopwatch {
+    display: block !important; }
+  .iTimer-timer .timer {
+    display: block !important; }
+  .iTimer__time {
+    font-size: 100px;
+    font-family: calibri, arial;
+    color: #64648c; }
   .iTimer__controls_container {
     margin-top: 30px;
     margin-right: -30px; }
@@ -132,53 +143,61 @@ body {
     .iTimer__control:hover {
       background: transparent;
       color: #64648c; }
-  .iTimer__lapslist {
-    margin: 0;
-    padding: 0;
-    margin-top: 30px;
-    font-size: 20px;
-    list-style: none; }
 
-.iTimer-stopwatch .iTimer__stopwatch {
+.stopwatch__lapslist {
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  font-size: 20px;
+  list-style: none; }
+
+.stopwatch-paused .stopwatch__reset, .stopwatch-paused .stopwatch__start {
+  display: inline-block; }
+
+.stopwatch-running .stopwatch__lap, .stopwatch-running .stopwatch__stop {
+  display: inline-block; }
+
+.timer__reset {
+  display: inline-block; }
+
+.timer-paused .timer__start {
+  display: inline-block; }
+
+.timer-running .timer__stop {
+  display: inline-block; }
+
+.timer-set .timer__set_container {
   display: block; }
 
-.iTimer-stopwatch .iTimer__selectStopwatch {
-  font-weight: bold; }
+.timer-set .timer__time {
+  display: none; }
 
-.iTimer-timer .iTimer__timer {
-  display: block; }
-
-.iTimer-timer .iTimer__selectTimer {
-  font-weight: bold; }
-
-.iTimer__time {
-  font-size: 100px !important;
+.timer__set {
+  border: none;
+  border: 1px dotted #64648c;
+  background: none;
+  display: inline-block;
+  width: 120px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 100px;
+  color: #64648c;
   font-family: calibri, arial;
-  color: #64648c; }
-
-.iTimer__stopwatch {
-  display: none; }
-
-.iTimer__stopwatch-paused .iTimer__reset,
-.iTimer__stopwatch-paused .iTimer__start {
-  display: inline-block; }
-
-.iTimer__stopwatch-running .iTimer__lap,
-.iTimer__stopwatch-running .iTimer__stop {
-  display: inline-block; }
-
-/* Timer */
-.iTimer__timer {
-  display: none; }
-
-.iTimer__timer .iTimer__reset {
-  display: inline-block; }
-
-.iTimer__timer-paused .iTimer__start {
-  display: inline-block; }
-
-.iTimer__timer-running .iTimer__stop {
-  display: inline-block; }
+  text-align: center;
+  padding: 0 1px;
+  margin-left: -1px;
+  outline: 0; }
+  .timer__set:first-child {
+    margin-left: 0; }
+  .timer__set:focus {
+    -webkit-box-shadow: 0 2px 8px 2px #797777;
+            box-shadow: 0 2px 8px 2px #797777; }
+  .timer__setms {
+    width: 170px; }
+  .timer__set_container {
+    font-size: 0;
+    margin-top: -2px;
+    display: none; }
 
 .footer {
   background: #64648c; }

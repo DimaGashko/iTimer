@@ -1,0 +1,51 @@
+﻿.iTimer
+   $margin: 30px;
+
+   text-align: center;
+   
+   //sistem
+   &__type
+      display: none;
+      
+   &-stopwatch .stopwatch
+      display: block!important;
+      
+   &-timer .timer
+      display: block!important;
+   
+   //style
+   &__time 
+      font-size: 100px;
+      font-family: calibri, arial
+      color: $color1
+   
+   &__controls_container
+      margin-top: $margin;
+      margin-right: -$margin;
+
+   &__control
+      @extend %basebutton
+   
+      display: none;
+      color: $color3;
+      background: $color1;
+      border: 2px solid $color1;
+      font-family: calibri, arial; 
+      border-radius: 2px;
+      font-size: 18px
+      padding: 6px 0px;
+      text-align: center;
+      width: 150px;
+      margin-right: 30px;
+      transition: background .4s;
+      font-weight: bold; 
+         
+      &:hover 
+         background: transparent;
+         color: $color1
+      
+      &:active
+      
+      
+      
+      

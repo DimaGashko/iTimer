@@ -35,29 +35,29 @@
         <div class="container mainsection__container"> 
           <div class="iTimer">
             <!--stopwatch-->
-            <div class="iTimer__type iTimer__stopwatch">
+            <div class="iTimer__type stopwatch">
               <div class="iTimer__time stopwatch__time">0:00:00.000</div>
               <div class="iTimer__controls_container"> 
-                <button class="iTimer__control iTimer__reset">Сброс (alt + R)</button>
-                <button class="iTimer__control iTimer__start">Старт (пробел)</button>
-                <button class="iTimer__control iTimer__lap">Lap (alt + L)</button>
-                <button class="iTimer__control iTimer__stop">Стоп (пробел)                     </button>
+                <button class="iTimer__control stopwatch__reset">Сброс (alt + R)</button>
+                <button class="iTimer__control stopwatch__start">Старт (пробел)</button>
+                <button class="iTimer__control stopwatch__lap">Lap (alt + L)</button>
+                <button class="iTimer__control stopwatch__stop">Стоп (пробел)                     </button>
               </div>
-              <ul class="iTimer__lapslist"></ul>
+              <ul class="stopwatch__lapslist"></ul>
             </div>
             <!--timer-->
-            <div class="iTimer__type iTimer__timer">
-              <div class="iTimer__time stopwatch__settime">
-                <input class="iTimer__timecomp iTimer__h" type="number" min="0" max="99" step="1" value="0">
-                <input class="iTimer__timecomp iTimer__m" type="number" min="0" max="59" step="1" value="0">
-                <input class="iTimer__timecomp iTimer__s" type="number" min="0" max="59" step="1" value="0">
-                <input class="iTimer__timecomp iTimer__ms" type="number" min="0" max="999" step="1" value="0">
+            <div class="iTimer__type timer timer-set">
+              <div class="iTimer__time timer__set_container">
+                <input class="timer__set timer__seth" type="number" min="0" max="99" step="1" value="0">
+                <input class="timer__set timer__setm" type="number" min="0" max="59" step="1" value="0">
+                <input class="timer__set timer__sets" type="number" min="0" max="59" step="1" value="0">
+                <input class="timer__set timer__setms" type="number" min="0" max="999" step="1" value="0">
               </div>
-              <div class="iTimer__time">stopwatch__time</div>
+              <div class="iTimer__time timer__time">0:00:00.000</div>
               <div class="iTimer__controls_container">
-                <button class="iTimer__control iTimer__reset">Сброс (alt + R)</button>
-                <button class="iTimer__control iTimer__start">Старт (пробел)</button>
-                <button class="iTimer__control iTimer__stop">Стоп (пробел)</button>
+                <button class="iTimer__control timer__reset">Сброс (alt + R)</button>
+                <button class="iTimer__control timer__start">Старт (пробел)</button>
+                <button class="iTimer__control timer__stop">Стоп (пробел)</button>
               </div>
               <div class="iTimer__templatesContainer">
                 <!--button.iTimer__newtemplate-->

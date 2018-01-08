@@ -1,0 +1,51 @@
+﻿.timer 
+   
+   //system
+   &__reset
+      display: inline-block
+
+   &-paused
+      .timer__start
+         display: inline-block
+         
+   &-running
+      .timer__stop
+         display: inline-block
+         
+   &-set
+      .timer__set_container
+         display: block;
+      
+      .timer__time
+         display: none;
+         
+   //style
+   &__set
+      border: none;
+      border: 1px dotted $color1;
+      background: none;
+      display: inline-block
+      width: 120px
+      box-sizing: border-box
+      font-size: 100px;
+      color: $color1;
+      font-family: calibri, arial;
+      text-align: center;
+      padding: 0 1px;
+      margin-left: -1px
+      outline: 0;
+      
+      &:first-child
+         margin-left: 0
+      
+      &:focus
+         box-shadow: 0 2px 8px 2px #797777;
+      
+      &ms
+         width: 170px
+      
+      &_container
+         font-size: 0;
+         margin-top: -2px
+         display: none;
+      

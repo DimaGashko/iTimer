@@ -75,15 +75,15 @@
    }
    
    fn._onRunning = function() {
-      this.els.root.classList.remove(`iTimer__${this.iTimerType}-paused`);
-      this.els.root.classList.add(`iTimer__${this.iTimerType}-running`);
+      this.els.root.classList.remove(`${this.iTimerType}-paused`);
+      this.els.root.classList.add(`${this.iTimerType}-running`);
       
       this._running = true;
    }
    
    fn._ofRunning = function() {
-      this.els.root.classList.remove(`iTimer__${this.iTimerType}-running`);
-      this.els.root.classList.add(`iTimer__${this.iTimerType}-paused`);
+      this.els.root.classList.remove(`${this.iTimerType}-running`);
+      this.els.root.classList.add(`${this.iTimerType}-paused`);
       
       this._running = false;
    }
@@ -105,13 +105,13 @@
       this.els.iTimerRoot = document.querySelector('.iTimer');
       
       var r = this.els.root = this.els.iTimerRoot
-         .querySelector(`.iTimer__${this.iTimerType}`);
+         .querySelector(`.${this.iTimerType}`);
       
-      this.els.time = r.querySelector('.iTimer__time');
+      this.els.time = r.querySelector(`.${this.iTimerType}__time`);
       
-      this.els.reset = this.els.root.querySelector('.iTimer__reset');
-      this.els.start = this.els.root.querySelector('.iTimer__start');
-      this.els.stop = this.els.root.querySelector('.iTimer__stop');
+      this.els.reset = this.els.root.querySelector(`.${this.iTimerType}__reset`);
+      this.els.start = this.els.root.querySelector(`.${this.iTimerType}__start`);
+      this.els.stop = this.els.root.querySelector(`.${this.iTimerType}__stop`);
    }
    
    fn._createParametrs = function() {
