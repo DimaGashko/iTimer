@@ -66,7 +66,7 @@ describe("onlyNumber", () => {
       assert.strictEqual(f('60', 59), '59');
    });
    it("onlyNumber('-10', 59) => '10'", () => {
-      assert.strictEqual(f('-10', 59), '-10');
+      assert.strictEqual(f('-10', 59), '10');
    });
    it("onlyNumber('-', 59) => '0'", () => {
       assert.strictEqual(f('-', 59), '0');
