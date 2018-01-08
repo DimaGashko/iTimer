@@ -78,12 +78,15 @@
    }
    
    fn.updateTime = function() {
-      var date = new Date(Date.now() - this.timeStart);
+      var allMs = (Date.now() - this.timeStart) * 5000222;
+      var date = new Date(allMs);
       
-      this.h = date.getUTCHours();
       this.m = date.getUTCMinutes();
       this.s = date.getUTCSeconds();
       this.ms = date.getUTCMilliseconds();
+      
+      this.h = allMs - (this.m * 60 * 1000) - (this.s * 1000) - this.ms;
+      this.h = Math.floor(this.h / (60 * 60 * 1000) );
    }
    
    fn._initEvents = function() {

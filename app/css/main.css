@@ -42,8 +42,7 @@ body {
   position: relative;
   min-height: 150px; }
   .header__container {
-    max-width: 100%;
-    padding: 20px; }
+    padding: 10px; }
   .header__logo {
     text-align: center;
     font-family: cursive;
