@@ -43,3 +43,66 @@ describe("ITimerBase", () => {
 	});
 
 });
+
+describe("onlyNumber", () => {
+	var f = onlyNumber.getCorrect;
+		
+   it("onlyNumber('0', 59) => '0'", () => {
+      assert.strictEqual(f('0', 59), '0');
+   });
+   it("onlyNumber('1', 59) => '1'", () => {
+      assert.strictEqual(f('1', 59), '1');
+   });
+   it("onlyNumber('12', 59) => '12'", () => {
+      assert.strictEqual(f('12', 59), '12');
+   });
+   it("onlyNumber('123', 59) => '12'", () => {
+      assert.strictEqual(f('123', 59), '12');
+   });
+   it("onlyNumber('123456', 59) => '12'", () => {
+      assert.strictEqual(f('123456', 59), '12');
+   });
+   it("onlyNumber('60', 59) => '59'", () => {
+      assert.strictEqual(f('60', 59), '59');
+   });
+   it("onlyNumber('-10', 59) => '10'", () => {
+      assert.strictEqual(f('-10', 59), '-10');
+   });
+   it("onlyNumber('-', 59) => '0'", () => {
+      assert.strictEqual(f('-', 59), '0');
+   });
+   it("onlyNumber('asdf', 59) => '0'", () => {
+      assert.strictEqual(f('asdf', 59), '0');
+   });
+   it("onlyNumber('-60', 59) => '59'", () => {
+      assert.strictEqual(f('-60', 59), '59');
+   });
+   it("onlyNumber('10a', 59) => '10'", () => {
+      assert.strictEqual(f('10a', 59), '10');
+   });
+   it("onlyNumber('-10a', 59) => '10'", () => {
+      assert.strictEqual(f('-10a', 59), '10');
+   });
+   it("onlyNumber('-60asdg', 59) => '10'", () => {
+      assert.strictEqual(f('-60asdf', 59), '59');
+   });
+   
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

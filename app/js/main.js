@@ -18,6 +18,12 @@
       timer:  84,
    }
    
+   //corectVal in timeSer (timer)
+   onlyNumber(document.querySelector('.timer__seth'), 99);
+   onlyNumber(document.querySelector('.timer__setm'), 59);
+   onlyNumber(document.querySelector('.timer__sets'), 59);
+   onlyNumber(document.querySelector('.timer__setms'), 999);
+   
    //help
    els.openHelp.addEventListener('click', () => {
       alert('Помощь будет добавлена в скором времени!');
