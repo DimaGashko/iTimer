@@ -202,8 +202,7 @@ body {
     width: 170px; }
   .timer__set_container {
     font-size: 0;
-    margin-top: -2px;
-    display: none; }
+    margin-top: -2px; }
 
 .timer__setcontrol {
   position: absolute;
@@ -224,6 +223,9 @@ body {
   position: relative;
   display: inline-block;
   margin: 0 auto; }
+
+.timer__set_container {
+  display: none; }
 
 .footer {
   background: #64648c; }
