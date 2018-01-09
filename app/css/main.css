@@ -206,18 +206,35 @@ body {
 
 .timer__setcontrol {
   position: absolute;
-  right: -28px;
-  top: -28px;
-  line-height: 25px;
+  right: -30px;
+  top: -30px;
+  line-height: 18px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   background: #64648c;
-  color: #eee; }
+  color: #eee;
+  padding: 0;
+  border: 2px solid #64648c;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
+  -webkit-transition: background .4s, border-color .6s;
+  transition: background .4s, border-color .6s; }
   .timer__setcontrol:hover {
     background: transparent;
-    color: #64648c; }
+    border-color: transparent;
+    color: #64648c;
+    -webkit-transition: background .4s, color .4s, border-color .2s;
+    transition: background .4s, color .4s, border-color .2s; }
   .timer__setcontrol:focus {
-    color: #b46464;
+    background: transparent;
+    color: #64648c;
+    border-color: #64648c !important;
     -webkit-box-shadow: none;
             box-shadow: none; }
+    .timer__setcontrol:focus:hover {
+      background: #64648c;
+      color: #eee; }
 
 .timer__set_container, .timer__time_container {
   position: relative;

@@ -83,7 +83,7 @@ describe("onlyNumber", () => {
    it("onlyNumber('-10a', 59) => '10'", () => {
       assert.strictEqual(f('-10a', 59), '10');
    });
-   it("onlyNumber('-60asdg', 59) => '10'", () => {
+   it("onlyNumber('-60asdg', 59) => '59'", () => {
       assert.strictEqual(f('-60asdf', 59), '59');
    });
    

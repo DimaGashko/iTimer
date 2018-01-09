@@ -53,18 +53,33 @@
       @extend %roundIcon
    
       position: absolute;
-      right: -28px;
-      top: -28px;
-      line-height: 25px
+      right: -30px;
+      top: -30px;
+      line-height: 18px
+      width: 28px;
+      height: 28px;
+      border-radius: 50%
       background: $color1;
       color: $color3;
+      padding: 0
+      border: 2px solid $color1
+      box-sizing: initial
+      transition: background .4s, border-color .6s;
       
       &:hover
          background: transparent;
+         border-color: transparent
          color: $color1;
+         transition: background .4s, color .4s, border-color .2s;
       &:focus
-         color: $color2
+         background: transparent
+         color: $color1
+         border-color: $color1!important
          box-shadow: none
+         
+         &:hover
+            background: $color1
+            color: $color3
          
          
       
