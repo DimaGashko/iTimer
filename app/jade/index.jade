@@ -1,4 +1,4 @@
-﻿doctype html
+doctype html
 html
    head
       title iTimer - Таймер и секундомер с возобновлением работы при обновлении страницы
@@ -33,10 +33,10 @@ html
                .header__logo iTimer
                
                ul.header__menu 
-                  li.header__menuitem.select_stopwatch: a(title="Секундомер (alt + s)"): i.icon &#xe802;
-                  li.header__menuitem.select_timer: a(title="Таймер (alt + t)"): i.icon &#xe803;
-                  li.header__menuitem.header__set: a(title="Настройки"): i.icon &#xe804; 
-                  li.header__menuitem.header__help: a(title="Справка"): i.icon &#xe800;
+                  li.header__menuitem.select_stopwatch(title="Секундомер (alt + s)"): a: i.icon &#xe801;
+                  li.header__menuitem.select_timer(title="Таймер (alt + t)"): a: i.icon &#xe803;
+                  li.header__menuitem.header__set(title="Настройки"): a: i.icon &#xe804; 
+                  li.header__menuitem.header__help(title="Справка"): a: i.icon &#xe800;
    
          main.section.mainsection
             .container.mainsection__container 
@@ -61,8 +61,12 @@ html
                         input.timer__set.timer__setm(type="number", min="0", max="59", step="1", value="0")
                         input.timer__set.timer__sets(type="number", min="0", max="59", step="1", value="0")
                         input.timer__set.timer__setms(type="number", min="0", max="999", step="1", value="0")
+                        
+                        button.timer__setcontrol.timer__save(title="Сохранить"): i.icon &#xe805;
                      
-                     .iTimer__time.timer__time 0:00:00.000
+                     .timer__time_container
+                        .iTimer__time.timer__time 0:00:00.000
+                        button.timer__setcontrol.timer__edit(title="Установить время"): i.icon &#xe802;
                      
                      .iTimer__controls_container
                         button.iTimer__control.timer__reset Сброс (alt + R)

@@ -25,10 +25,10 @@
         <div class="container header__container">
           <div class="header__logo">iTimer</div>
           <ul class="header__menu"> 
-            <li class="header__menuitem select_stopwatch"><a title="Секундомер (alt + s)"><i class="icon">&#xe802;</i></a></li>
-            <li class="header__menuitem select_timer"><a title="Таймер (alt + t)"><i class="icon">&#xe803;</i></a></li>
-            <li class="header__menuitem header__set"><a title="Настройки"><i class="icon">&#xe804; </i></a></li>
-            <li class="header__menuitem header__help"><a title="Справка"><i class="icon">&#xe800;</i></a></li>
+            <li class="header__menuitem select_stopwatch" title="Секундомер (alt + s)"><a><i class="icon">&#xe801;</i></a></li>
+            <li class="header__menuitem select_timer" title="Таймер (alt + t)"><a><i class="icon">&#xe803;</i></a></li>
+            <li class="header__menuitem header__set" title="Настройки"><a><i class="icon">&#xe804; </i></a></li>
+            <li class="header__menuitem header__help" title="Справка"><a><i class="icon">&#xe800;</i></a></li>
           </ul>
         </div>
       </header>
@@ -53,8 +53,12 @@
                 <input class="timer__set timer__setm" type="number" min="0" max="59" step="1" value="0">
                 <input class="timer__set timer__sets" type="number" min="0" max="59" step="1" value="0">
                 <input class="timer__set timer__setms" type="number" min="0" max="999" step="1" value="0">
+                <button class="timer__setcontrol timer__save" title="Сохранить"><i class="icon">&#xe805;</i></button>
               </div>
-              <div class="iTimer__time timer__time">0:00:00.000</div>
+              <div class="timer__time_container">
+                <div class="iTimer__time timer__time">0:00:00.000</div>
+                <button class="timer__setcontrol timer__edit" title="Установить время"><i class="icon">&#xe802;</i></button>
+              </div>
               <div class="iTimer__controls_container">
                 <button class="iTimer__control timer__reset">Сброс (alt + R)</button>
                 <button class="iTimer__control timer__start">Старт (пробел)</button>

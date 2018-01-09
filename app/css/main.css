@@ -28,7 +28,7 @@ body {
 .section {
   margin: 0; }
 
-.iTimer__control {
+.iTimer__control, .timer__setcontrol {
   outline: none;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -36,9 +36,23 @@ body {
           user-select: none;
   cursor: pointer;
   border: none; }
-  .iTimer__control:focus {
+  .iTimer__control:focus, .timer__setcontrol:focus {
     -webkit-box-shadow: 0 2px 8px 2px #797777;
             box-shadow: 0 2px 8px 2px #797777; }
+
+.header__menuitem, .timer__setcontrol {
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  border-radius: 50%;
+  -webkit-transition: color .4s, background 1s;
+  transition: color .4s, background 1s;
+  cursor: pointer;
+  text-align: center;
+  line-height: 28px; }
+  .header__menuitem:hover, .timer__setcontrol:hover {
+    -webkit-transition: color .4s;
+    transition: color .4s; }
 
 .header {
   background: #64648c;
@@ -80,27 +94,19 @@ body {
     .header__menuitem {
       float: left;
       margin-left: 10px;
-      width: 28px;
-      height: 28px;
-      background: #eee;
-      border-radius: 50%;
-      -webkit-transition: color .4s, background 1s;
-      transition: color .4s, background 1s;
-      cursor: pointer;
-      text-align: center;
-      line-height: 28px; }
+      background: #eee; }
       .header__menuitem:first-child {
         margin-left: 0; }
-    .header__menuitem:hover {
-      -webkit-transition: color .4s;
-      transition: color .4s;
-      background: transparent;
-      color: #eee; }
-    .header__menuitem-select {
-      color: #b46464; }
-      .header__menuitem-select:hover {
+      .header__menuitem:hover {
+        background: transparent;
+        color: #eee; }
+      .header__menuitem-select {
         color: #b46464;
-        background: #eee; }
+        -webkit-transition: color 0.4s, background 1s !important;
+        transition: color 0.4s, background 1s !important; }
+        .header__menuitem-select:hover {
+          color: #b46464;
+          background: #eee; }
 
 .mainsection {
   background: #eee;
@@ -167,9 +173,9 @@ body {
   display: inline-block; }
 
 .timer-set .timer__set_container {
-  display: block; }
+  display: inline-block; }
 
-.timer-set .timer__time {
+.timer-set .timer__time_container {
   display: none; }
 
 .timer__set {
@@ -198,6 +204,26 @@ body {
     font-size: 0;
     margin-top: -2px;
     display: none; }
+
+.timer__setcontrol {
+  position: absolute;
+  right: -28px;
+  top: -28px;
+  line-height: 25px;
+  background: #64648c;
+  color: #eee; }
+  .timer__setcontrol:hover {
+    background: transparent;
+    color: #64648c; }
+  .timer__setcontrol:focus {
+    color: #b46464;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+
+.timer__set_container, .timer__time_container {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto; }
 
 .footer {
   background: #64648c; }

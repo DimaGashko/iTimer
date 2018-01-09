@@ -14,9 +14,9 @@
          
    &-set
       .timer__set_container
-         display: block;
+         display: inline-block;
       
-      .timer__time
+      .timer__time_container
          display: none;
          
    //style
@@ -48,4 +48,29 @@
          font-size: 0;
          margin-top: -2px
          display: none;
+   
+   &__setcontrol
+      @extend %basebutton
+      @extend %roundIcon
+   
+      position: absolute;
+      right: -28px;
+      top: -28px;
+      line-height: 25px
+      background: $color1;
+      color: $color3;
       
+      &:hover
+         background: transparent;
+         color: $color1;
+      &:focus
+         color: $color2
+         box-shadow: none
+         
+         
+      
+   &__set_container,
+   &__time_container
+      position: relative;
+      display: inline-block;
+      margin: 0 auto;

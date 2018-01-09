@@ -10,10 +10,6 @@
          el.value = onlyNumber.getCorrect(el.value, max);
       });
       
-      el.addEventListener('change', () => {
-         el.value = onlyNumber.getCorrect(el.value, max);
-      });
-      
       el.addEventListener('blur', () => {
          el.value = onlyNumber.getCorrect(el.value, max);
       });

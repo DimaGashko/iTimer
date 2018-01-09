@@ -25,10 +25,22 @@
       "src": "entypo"
     },
     {
-      "uid": "8663320a860b00f26e94d3d15c9ba99a",
+      "uid": "b99d736cef489a3150ba8aac7c4e8403",
       "css": "clock",
+      "code": 59393,
+      "src": "iconic"
+    },
+    {
+      "uid": "d35a1d35efeb784d1dc9ac18b9b6c2b6",
+      "css": "pencil",
       "code": 59394,
-      "src": "entypo"
+      "src": "fontawesome"
+    },
+    {
+      "uid": "12f4ece88e46abd864e40b35e05b11cd",
+      "css": "ok",
+      "code": 59397,
+      "src": "fontawesome"
     }
   ]
 }

@@ -32,31 +32,26 @@
       user-select: none;
       
       &item
+         @extend %roundIcon
+         
          float: left;
          margin-left: 10px;
-         width: 28px;
-         height: 28px;
          background: $color3;
-         border-radius: 50%;
-         transition: color .4s, background 1s;
-         cursor: pointer;
-         text-align: center;
-         line-height: 28px;
          
          &:first-child
             margin-left: 0;
             
-      &item:hover, 
-         transition: color .4s;
-         background: transparent;
-         color: $color3;
+         &:hover
+            background: transparent;
+            color: $color3;
          
-      &item-select
-         color: $color2;
-         
-         &:hover  
-            color: $color2;
-            background: $color3;
+         &-select
+            color: $color2
+            transition: color .4s, background 1s!important
+            
+            &:hover  
+               color: $color2;
+               background: $color3;
          
          
       

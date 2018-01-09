@@ -24,3 +24,24 @@ body
    
    &:focus 
       box-shadow: 0 2px 8px 2px #797777;
+      
+%roundIcon
+      $size: 28px
+   
+      width: $size;
+      height: $size;
+      font-size: 16px
+      border-radius: 50%;
+      transition: color .4s, background 1s;
+      cursor: pointer;
+      text-align: center;
+      line-height: $size;
+         
+      &:hover
+         transition: color .4s;
+      
+      &-select
+         transition: color .4s, background 1s!important;
+         
+         &:hover  
+      
