@@ -1,18 +1,26 @@
 ﻿;(function(){
    "use strict"
+
+   var DEF = {
+      
+   }
    
    function Base() {
       this._createParametrs();
       this._getElements();
       this._initEvents();
       
-      this.start().stop();
+      this._init();
    }
    
    var fn = Base.prototype;
    
    fn.nextPeriod = function() {}
    fn._initEvents = function() {}
+   fn._init = function() {
+      this._ofRunning();
+      
+   }
    
    fn.start = function() {
       if (this._running) return 'return'; //Ответ, для методов, которые разширяют данный
