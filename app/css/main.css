@@ -163,86 +163,85 @@ body {
 .stopwatch-running .stopwatch__lap, .stopwatch-running .stopwatch__stop {
   display: inline-block; }
 
-.timer__reset {
-  display: inline-block; }
-
-.timer-paused .timer__start {
-  display: inline-block; }
-
-.timer-running .timer__stop {
-  display: inline-block; }
-
-.timer-set .timer__set_container {
-  display: inline-block; }
-
-.timer-set .timer__time_container {
-  display: none; }
-
-.timer__set {
-  border: none;
-  border: 1px dotted #64648c;
-  background: none;
-  display: inline-block;
-  width: 120px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: 100px;
-  color: #64648c;
-  font-family: calibri, arial;
-  text-align: center;
-  padding: 0 1px;
-  margin-left: -1px;
-  outline: 0; }
-  .timer__set:first-child {
-    margin-left: 0; }
-  .timer__set:focus {
-    -webkit-box-shadow: 0 2px 8px 2px #797777;
-            box-shadow: 0 2px 8px 2px #797777; }
-  .timer__setms {
-    width: 170px; }
+.timer {
+  position: relative; }
+  .timer__reset {
+    display: inline-block; }
+  .timer-paused .timer__start {
+    display: inline-block; }
+  .timer-running .timer__stop {
+    display: inline-block; }
+  .timer-set .timer__set_container {
+    display: inline-block; }
+  .timer-set .timer__time_container {
+    display: none; }
+  .timer__set {
+    border: none;
+    border: 1px dotted #64648c;
+    background: none;
+    display: inline-block;
+    width: 120px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 100px;
+    color: #64648c;
+    font-family: calibri, arial;
+    text-align: center;
+    padding: 0 1px;
+    margin-left: -1px;
+    outline: 0; }
+    .timer__set:first-child {
+      margin-left: 0; }
+    .timer__set:focus {
+      -webkit-box-shadow: 0 2px 8px 2px #797777;
+              box-shadow: 0 2px 8px 2px #797777; }
+    .timer__setms {
+      width: 170px; }
+    .timer__set_container {
+      font-size: 0;
+      margin-top: -2px; }
+  .timer__setcontrol {
+    line-height: 18px;
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #64648c;
+    color: #eee;
+    padding: 0;
+    border: 2px solid #64648c;
+    -webkit-box-sizing: initial;
+            box-sizing: initial;
+    -webkit-transition: background .4s, border-color .6s;
+    transition: background .4s, border-color .6s;
+    margin-left: 10px; }
+    .timer__setcontrol:first-child {
+      margin-left: 0; }
+    .timer__setcontrol:hover {
+      background: transparent;
+      border-color: transparent;
+      color: #64648c;
+      -webkit-transition: background .4s, color .4s, border-color .2s;
+      transition: background .4s, color .4s, border-color .2s; }
+    .timer__setcontrol:focus {
+      background: transparent;
+      color: #64648c;
+      border-color: #64648c !important;
+      -webkit-box-shadow: none;
+              box-shadow: none; }
+      .timer__setcontrol:focus:hover {
+        background: #64648c;
+        color: #eee; }
+    .timer__setcontrol_container {
+      position: absolute;
+      right: 0;
+      top: -40px; }
+  .timer__set_container, .timer__time_container {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto; }
   .timer__set_container {
-    font-size: 0;
-    margin-top: -2px; }
-
-.timer__setcontrol {
-  position: absolute;
-  right: -30px;
-  top: -30px;
-  line-height: 18px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: #64648c;
-  color: #eee;
-  padding: 0;
-  border: 2px solid #64648c;
-  -webkit-box-sizing: initial;
-          box-sizing: initial;
-  -webkit-transition: background .4s, border-color .6s;
-  transition: background .4s, border-color .6s; }
-  .timer__setcontrol:hover {
-    background: transparent;
-    border-color: transparent;
-    color: #64648c;
-    -webkit-transition: background .4s, color .4s, border-color .2s;
-    transition: background .4s, color .4s, border-color .2s; }
-  .timer__setcontrol:focus {
-    background: transparent;
-    color: #64648c;
-    border-color: #64648c !important;
-    -webkit-box-shadow: none;
-            box-shadow: none; }
-    .timer__setcontrol:focus:hover {
-      background: #64648c;
-      color: #eee; }
-
-.timer__set_container, .timer__time_container {
-  position: relative;
-  display: inline-block;
-  margin: 0 auto; }
-
-.timer__set_container {
-  display: none; }
+    display: none; }
 
 .footer {
   background: #64648c; }

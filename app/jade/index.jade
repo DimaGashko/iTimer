@@ -55,18 +55,21 @@ html
                      ul.stopwatch__lapslist
                   
                   //timer
-                  .iTimer__type.timer.timer-set
+                  .iTimer__type.timer
                      .iTimer__time.timer__set_container
                         input.timer__set.timer__seth(type="number", min="0", max="99", step="1", value="0")
                         input.timer__set.timer__setm(type="number", min="0", max="59", step="1", value="0")
                         input.timer__set.timer__sets(type="number", min="0", max="59", step="1", value="0")
                         input.timer__set.timer__setms(type="number", min="0", max="999", step="1", value="0")
                         
-                        button.timer__setcontrol.timer__save(title="Сохранить"): i.icon &#xe805;
+                        .timer__setcontrol_container
+                           button.timer__setcontrol.timer__save(title="Сохранить"): i.icon &#xe805;
+                           button.timer__setcontrol.timer__cancel(title="Oтменить"): i.icon &#xe806;
                      
                      .timer__time_container
                         .iTimer__time.timer__time 0:00:00.000
-                        button.timer__setcontrol.timer__edit(title="Установить время"): i.icon &#xe802;
+                        .timer__setcontrol_container
+                           button.timer__setcontrol.timer__edit(title="Установить время"): i.icon &#xe802;
                      
                      .iTimer__controls_container
                         button.iTimer__control.timer__reset Сброс (alt + R)

@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'icons';
-  src: url('../font/icons.eot?1024814');
-  src: url('../font/icons.eot?1024814#iefix') format('embedded-opentype'),
-       url('../font/icons.woff2?1024814') format('woff2'),
-       url('../font/icons.woff?1024814') format('woff'),
-       url('../font/icons.ttf?1024814') format('truetype'),
-       url('../font/icons.svg?1024814#icons') format('svg');
+  src: url('../font/icons.eot?12848115');
+  src: url('../font/icons.eot?12848115#iefix') format('embedded-opentype'),
+       url('../font/icons.woff2?12848115') format('woff2'),
+       url('../font/icons.woff?12848115') format('woff'),
+       url('../font/icons.ttf?12848115') format('truetype'),
+       url('../font/icons.svg?12848115#icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'icons';
-    src: url('../font/icons.svg?1024814#icons') format('svg');
+    src: url('../font/icons.svg?12848115#icons') format('svg');
   }
 }
 */
@@ -61,3 +61,4 @@
 .icon-hourglass:before { content: '\e803'; } /* '' */
 .icon-wrench-1:before { content: '\e804'; } /* '' */
 .icon-ok:before { content: '\e805'; } /* '' */
+.icon-cancel:before { content: '\e806'; } /* '' */

@@ -18,6 +18,13 @@
       this.renderTime();
    }
    
+   fn._init = function() {
+      var a = fnBase._init.apply(this, arguments);
+      if (a === 'return') return this;
+      
+      this.showSet();
+   }
+   
    fn.start = function() {
       var answer = fnBase.start.apply(this, arguments);
       if (answer === 'return') return this;
@@ -55,7 +62,45 @@
       
    }
    
+   fn.readSetTime = function() {
+      this.h = this.els.set.h.value;
+      this.m = this.els.set.m.value;
+      this.s = this.els.set.s.value;
+      this.ms = this.els.set.ms.value;
+   }
+   
+   fn.writeSetTime = function() {
+      this.els.set.h.value = this.h;
+      this.els.set.m.value = this.m;
+      this.els.set.s.value = this.s;
+      this.els.set.ms.value = this.ms;
+   }
+   
+   fn.showSet = function() {
+      this.els.root.classList.add('timer-set');
+   }
+   
+   fn.hideSet = function() {
+      this.els.root.classList.remove('timer-set');
+   }
+   
    fn._initEvents = function() {
+      this.els.save.addEventListener('click', () => {
+         this.hideSet();
+         this.readSetTime();
+         this.renderTime();
+      });
+      
+      this.els.cancel.addEventListener('click', () => {
+         this.hideSet();
+      });
+      
+      this.els.edit.addEventListener('click', () => {
+         this.stop();
+         this.writeSetTime();
+         this.showSet();
+      });
+      
       /*this.els.start.addEventListener('click', () => {
          if (!this._disable) this.start();
       });
@@ -117,7 +162,17 @@
    
    fn._getElements = function() {
       fnBase._getElements.apply(this, arguments);
+      var r = this.els.root;
       
+      this.els.save = r.querySelector('.timer__save');
+      this.els.edit = r.querySelector('.timer__edit');
+      this.els.cancel = r.querySelector('.timer__cancel');
+      
+      var set = this.els.set = {};
+      set.h = r.querySelector('.timer__seth');
+      set.m = r.querySelector('.timer__setm');
+      set.s = r.querySelector('.timer__sets');
+      set.ms = r.querySelector('.timer__setms');
    }
    
    fn._createParametrs = function() {

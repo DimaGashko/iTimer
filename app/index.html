@@ -47,17 +47,22 @@
               <ul class="stopwatch__lapslist"></ul>
             </div>
             <!--timer-->
-            <div class="iTimer__type timer timer-set">
+            <div class="iTimer__type timer">
               <div class="iTimer__time timer__set_container">
                 <input class="timer__set timer__seth" type="number" min="0" max="99" step="1" value="0">
                 <input class="timer__set timer__setm" type="number" min="0" max="59" step="1" value="0">
                 <input class="timer__set timer__sets" type="number" min="0" max="59" step="1" value="0">
                 <input class="timer__set timer__setms" type="number" min="0" max="999" step="1" value="0">
-                <button class="timer__setcontrol timer__save" title="Сохранить"><i class="icon">&#xe805;</i></button>
+                <div class="timer__setcontrol_container">
+                  <button class="timer__setcontrol timer__save" title="Сохранить"><i class="icon">&#xe805;</i></button>
+                  <button class="timer__setcontrol timer__cancel" title="Oтменить"><i class="icon">&#xe806;</i></button>
+                </div>
               </div>
               <div class="timer__time_container">
                 <div class="iTimer__time timer__time">0:00:00.000</div>
-                <button class="timer__setcontrol timer__edit" title="Установить время"><i class="icon">&#xe802;</i></button>
+                <div class="timer__setcontrol_container">
+                  <button class="timer__setcontrol timer__edit" title="Установить время"><i class="icon">&#xe802;</i></button>
+                </div>
               </div>
               <div class="iTimer__controls_container">
                 <button class="iTimer__control timer__reset">Сброс (alt + R)</button>
