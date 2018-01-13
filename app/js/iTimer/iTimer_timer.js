@@ -99,19 +99,7 @@
       this.showSet();
    }
    
-   fn._initEvents = function() {
-      this.els.save.addEventListener('click', () => {
-            this.saveTime();
-      });
-      
-      this.els.cancel.addEventListener('click', () => {
-         this.cancelSet();
-      });
-      
-      this.els.edit.addEventListener('click', () => {
-         this.editTime();
-      });
-      
+   fn._initEvents = function() {     
       this.els.start.addEventListener('click', () => {
          if (this._disable) return;
          this.start();
@@ -130,25 +118,72 @@
          this.editTime();
       });
       
+      this.els.edit.addEventListener('click', () => {
+         this.editTime();
+      });
+      
+      this.els.save.addEventListener('click', () => {
+            this.saveTime();
+      });
+      
+      this.els.cancel.addEventListener('click', () => {
+         this.cancelSet();
+      });
+      
       document.addEventListener('keyup', (event) => {
          if (this._disable) return; 
          
-         switch (event.keyCode) {
-            case this.KEYS.cancel: 
-               this.cancelSet();
-               break;
-               
+         switch (event.keyCode) {               
             case this.KEYS.start: 
                event.preventDefault();
                this.toggleStart();
                break;
                
             case this.KEYS.reset:
-               if (event.altKey) {
-                  event.preventDefault();
-                  this.reset();
-               }
+               if (!event.altKey) return;
+               event.preventDefault();
+               
+               this.reset();
+               this.writeSetTime();
+               this.editTime();
+               
                break;
+               
+            case this.KEYS.edit:
+               if (!event.altKey) return;
+               event.preventDefault();
+               
+               this.editTime();
+               break;
+               
+            case this.KEYS.save:
+               event.preventDefault();
+               
+               this.saveTime();
+               break;
+               
+            case this.KEYS.cancel:
+               event.preventDefault();
+               
+               this.cancelSet();
+               break;
+               
+            case this.KEYS.editH:
+               this._focusEditComponent('h');
+               break;
+            
+            case this.KEYS.editM:
+               this._focusEditComponent('m');
+               break;
+               
+            case this.KEYS.editS:
+               this._focusEditComponent('s');
+               break;
+               
+            case this.KEYS.editMs:
+               this._focusEditComponent('ms');
+               break;
+               
                
             default: break;
          }
@@ -164,12 +199,25 @@
                break;
                
             case this.KEYS.reset:
+            case this.KEYS.edit:
                if (event.altKey) event.preventDefault();
+               break;
+               
+            case this.KEYS.editH:
+            case this.KEYS.editM:
+            case this.KEYS.editS:
+            case this.KEYS.editMs:
+               event.preventDefault();
                break;
                
             default: break;
          }
       });
+   }
+   
+   fn._focusEditComponent = function(key) {
+      this.editTime();
+      this.els.set[key].focus();
    }
    
    fn._getElements = function() {
@@ -193,12 +241,16 @@
       this.allTime = 0 //Оставшееся время в миллисекундахж
    }
    
-   fn.iTimerType = 'timer';
-   
    fn.KEYS = {
       start: 32,
       reset: 82,
       cancel: 27,
+      edit: 69,
+      save: 13,
+      editH: 112,
+      editM: 113,
+      editS: 114,
+      editMs: 115,
    }
    
    fn._tmpls = {
@@ -206,6 +258,8 @@
          
       
    }
+   
+   fn.iTimerType = 'timer';
    
    window.Timer = Timer;
 }());

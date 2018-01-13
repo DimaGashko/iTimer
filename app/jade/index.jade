@@ -33,8 +33,8 @@ html
                .header__logo iTimer
                
                ul.header__menu 
-                  li.header__menuitem.select_stopwatch(title="Секундомер (alt + s)"): a: i.icon &#xe801;
-                  li.header__menuitem.select_timer(title="Таймер (alt + t)"): a: i.icon &#xe803;
+                  li.header__menuitem.select_stopwatch(title="Секундомер (Alt + S)"): a: i.icon &#xe801;
+                  li.header__menuitem.select_timer(title="Таймер (Alt + T)"): a: i.icon &#xe803;
                   li.header__menuitem.header__set(title="Настройки"): a: i.icon &#xe804; 
                   li.header__menuitem.header__help(title="Справка"): a: i.icon &#xe800;
    
@@ -47,34 +47,34 @@ html
                      .iTimer__time.stopwatch__time 0:00:00.000
                         
                      .iTimer__controls_container 
-                           button.iTimer__control.stopwatch__reset Сброс (alt + R)
-                           button.iTimer__control.stopwatch__start Старт (пробел)
-                           button.iTimer__control.stopwatch__lap Lap (alt + L)
-                           button.iTimer__control.stopwatch__stop Стоп (пробел)                     
+                           button.iTimer__control.stopwatch__reset Сброс (Alt + R)
+                           button.iTimer__control.stopwatch__start Старт (Пробел)
+                           button.iTimer__control.stopwatch__lap Lap (Alt + L)
+                           button.iTimer__control.stopwatch__stop Стоп (Пробел)                     
                      
                      ul.stopwatch__lapslist
                   
                   //timer
                   .iTimer__type.timer
                      .iTimer__time.timer__set_container
-                        input.timer__set.timer__seth(type="number", min="0", max="99", step="1", value="0")
-                        input.timer__set.timer__setm(type="number", min="0", max="59", step="1", value="0")
-                        input.timer__set.timer__sets(type="number", min="0", max="59", step="1", value="0")
-                        input.timer__set.timer__setms(type="number", min="0", max="999", step="1", value="0")
+                        input.timer__set.timer__seth(type="number", min="0", max="99", step="1", value="0" title="F1")
+                        input.timer__set.timer__setm(type="number", min="0", max="59", step="1", value="0" title="F2")
+                        input.timer__set.timer__sets(type="number", min="0", max="59", step="1", value="0" title="F3")
+                        input.timer__set.timer__setms(type="number", min="0", max="999", step="1", value="0" title="F4")
                         
                         .timer__setcontrol_container
-                           button.timer__setcontrol.timer__save(title="Сохранить"): i.icon &#xe805;
-                           button.timer__setcontrol.timer__cancel(title="Oтменить"): i.icon &#xe806;
+                           button.timer__setcontrol.timer__save(title="Сохранить (Enter)"): i.icon &#xe805;
+                           button.timer__setcontrol.timer__cancel(title="Oтменить (Esc)"): i.icon &#xe806;
                      
                      .timer__time_container
                         .iTimer__time.timer__time 0:00:00.000
                         .timer__setcontrol_container
-                           button.timer__setcontrol.timer__edit(title="Установить время"): i.icon &#xe802;
+                           button.timer__setcontrol.timer__edit(title="Установить время (Alt + E)"): i.icon &#xe802;
                      
                      .iTimer__controls_container
-                        button.iTimer__control.timer__reset Сброс (alt + R)
-                        button.iTimer__control.timer__start Старт (пробел)
-                        button.iTimer__control.timer__stop Стоп (пробел)
+                        button.iTimer__control.timer__reset Сброс (Alt + R)
+                        button.iTimer__control.timer__start Старт (Пробел)
+                        button.iTimer__control.timer__stop Стоп (Пробел)
                      
                      .iTimer__templatesContainer
                         //button.iTimer__newtemplate

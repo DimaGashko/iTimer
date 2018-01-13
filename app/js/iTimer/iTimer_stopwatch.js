@@ -148,9 +148,6 @@
                break;
                
             case this.KEYS.lap:
-               if (event.altKey) event.preventDefault();
-               break;
-               
             case this.KEYS.reset:
                if (event.altKey) event.preventDefault();
                break;
