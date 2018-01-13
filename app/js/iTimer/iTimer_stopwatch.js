@@ -12,9 +12,7 @@
    fn.constructor = Stopwatch;
    
    fn._init = function() {
-      var a = fnBase._init.apply(this, arguments);
-      if (a === 'return') return this;
-      
+      fnBase._init.apply(this, arguments);
       
    }
    
@@ -24,24 +22,24 @@
    }
    
    fn.start = function() {
-      var a = fnBase.start.apply(this, arguments);
-      if (a === 'return') return this;
+      if (this._running) return this;
+      fnBase.start.apply(this, arguments);
       
       this.timeStart += Date.now() - this.startPaused;
       
       return this;
    }
    
-   fn.stop = function() {   
-      var a = fnBase.stop.apply(this, arguments);
-      if (a === 'return') return this;
+   fn.stop = function() { 
+      if (!this._running) return this;   
+      fnBase.stop.apply(this, arguments);
       
       return this;
    }
    
    fn._stop = function() {
-      var a = fnBase._stop.apply(this, arguments);
-      if (a === 'return') return this;
+      if (this._running) return this;
+      fnBase._stop.apply(this, arguments);
       
       this.startPaused = Date.now();
    }

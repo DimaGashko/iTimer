@@ -47,7 +47,7 @@
    }
    
    fn._stop = function() {
-      if (!this._running) return this;
+      if (this._running) return this;
       fnBase._stop.apply(this, arguments);
       
    }
@@ -147,7 +147,7 @@
                this.cancelSet();
                break;
                
-            /*case this.KEYS.start: 
+            case this.KEYS.start: 
                event.preventDefault();
                this.toggleStart();
                break;
@@ -159,7 +159,7 @@
                }
                break;
                
-            default: break;*/
+            default: break;
          }
       });
       
@@ -168,19 +168,15 @@
          
          switch (event.keyCode) {
             
-            /*case this.KEYS.start: 
+            case this.KEYS.start: 
                event.preventDefault();
-               break;
-               
-            case this.KEYS.lap:
-               if (event.altKey) event.preventDefault();
                break;
                
             case this.KEYS.reset:
                if (event.altKey) event.preventDefault();
                break;
                
-            default: break;*/
+            default: break;
          }
       });
    }
