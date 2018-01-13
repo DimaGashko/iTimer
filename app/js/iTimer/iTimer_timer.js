@@ -25,14 +25,14 @@
    
    fn.start = function() {
       if (this._running) return this;
-      this.saveTime();
+      if (this._setOpened) this.saveTime();
       
-      if (this.allTime <= 0) {
+      if (this._allTime <= 0) {
          this.editTime();
          return;
       }
       
-      this.startTime += Date.now() - this.pausedStart;
+      this._startTime += Date.now() - this._pausedStart;
       
       fnBase.start.apply(this, arguments);
       
@@ -43,13 +43,13 @@
       if (!this._running) return this;
       fnBase.stop.apply(this, arguments);
       
-      this.pausedStart = Date.now();
+      this._pausedStart = Date.now();
       
       return this;
    }
    
    fn.updateTime = function() {      
-      var allMs = this.allTime - (Date.now() - this.startTime)
+      var allMs = this._allTime - (Date.now() - this._startTime)
       
       if (allMs <= 0) {
          this.end();
@@ -80,15 +80,15 @@
    fn.reset = function() {
       fnBase.reset.apply(this, arguments);
       
-      this.startTime = 0;
-      this.pausedStart= 0;
-      this.allTime = 0;
+      this._startTime = 0;
+      this._pausedStart= 0;
+      this._allTime = 0;
       
       return this;
    }
    
-   fn.updateAllTime = function() {
-      this.allTime = this.h*60*60*1000 
+   fn.update_allTime = function() {
+      this._allTime = this.h*60*60*1000 
          + this.m*60*1000 
          + this.s*1000 
          + this.ms;
@@ -109,19 +109,25 @@
    }
    
    fn.showSet = function() {
+      this._setOpened = true;
       this.els.root.classList.add('timer-set');
+      this.els.start.blur();
    }
    
    fn.hideSet = function() {
+      this._setOpened = false;
       this.els.root.classList.remove('timer-set');
+      this.els.start.focus();
    }
    
    fn.saveTime = function() {
+      if (!this._setOpened) return;
+      
       this.reset();
       this.hideSet();
       this.readSetTime();
       this.renderTime();
-      this.updateAllTime(); 
+      this.update_allTime(); 
    }
    
    fn.cancelSet = function() {
@@ -273,9 +279,11 @@
    fn._createParametrs = function() {
       fnBase._createParametrs.apply(this, arguments);
       
-      this.allTime = 0; //Оставшееся время в миллисекундах
-      this.startTime = 0;
-      this.pausedStart = 0;
+      this._allTime = 0; //Оставшееся время в миллисекундах
+      this._startTime = 0;
+      this._pausedStart = 0;
+      
+      this._setOpened = false;
    }
    
    fn.KEYS = {

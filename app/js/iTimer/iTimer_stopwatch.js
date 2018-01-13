@@ -24,7 +24,7 @@
    fn.start = function() {
       if (this._running) return this;
       
-      this.timeStart += Date.now() - this.pausedStart;
+      this._timeStart += Date.now() - this._pausedStart;
       
       fnBase.start.apply(this, arguments);
       
@@ -35,7 +35,7 @@
       if (!this._running) return this;   
       fnBase.stop.apply(this, arguments);
          
-      this.pausedStart = Date.now();
+      this._pausedStart = Date.now();
       
       return this;
    }
@@ -55,8 +55,8 @@
    fn.reset = function() {
       fnBase.reset.apply(this, arguments);
       
-      this.timeStart = 0;
-      this.pausedStart = 0;
+      this._timeStart = 0;
+      this._pausedStart = 0;
       
       this.laps.length = 0; //Очищаем массив так, что бы массив остался тот же
          //И если на него делали ссылки, что бы они остались актуальными
@@ -72,7 +72,7 @@
    }
    
    fn.updateTime = function() {
-      var allMs = Date.now() - this.timeStart;
+      var allMs = Date.now() - this._timeStart;
       var date = new Date(allMs);
       
       this.m = date.getUTCMinutes();
@@ -167,8 +167,8 @@
    fn._createParametrs = function() {
       fnBase._createParametrs.apply(this, arguments);
       
-      this.timeStart = 0;
-      this.pausedStart = 0;
+      this._timeStart = 0;
+      this._pausedStart = 0;
       
       this.laps = [];
    }
