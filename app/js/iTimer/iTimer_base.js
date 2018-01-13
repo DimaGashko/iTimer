@@ -30,10 +30,7 @@
          if (this._running) {
             this.nextPeriod();
             requestAnimationFrame(tik.bind(this));
-         } else {
-            this._stop(); //чтобы правильно остановить таймер 
-               //если просто изменят this._running
-         }
+         } 
       }.bind(this));
       
       this.els.stop.focus();
@@ -44,16 +41,12 @@
       if (!this._running) return this;
       this._running = false;
       
-      return this;
-   }
-   
-   fn._stop = function() {
-      if (this._running) return this;
-      
       this._ofRunning();
       this.els.start.focus();
+      
+      return this;
    }
-   
+ 
    fn.toggleStart = function() {
       (this._running) ? 
          this.stop() : this.start();

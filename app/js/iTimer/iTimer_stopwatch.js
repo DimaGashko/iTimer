@@ -23,9 +23,10 @@
    
    fn.start = function() {
       if (this._running) return this;
-      fnBase.start.apply(this, arguments);
       
       this.timeStart += Date.now() - this.startPaused;
+      
+      fnBase.start.apply(this, arguments);
       
       return this;
    }
@@ -33,15 +34,10 @@
    fn.stop = function() { 
       if (!this._running) return this;   
       fnBase.stop.apply(this, arguments);
+         
+      this.startPaused = Date.now();
       
       return this;
-   }
-   
-   fn._stop = function() {
-      if (this._running) return this;
-      fnBase._stop.apply(this, arguments);
-      
-      this.startPaused = Date.now();
    }
    
    fn.lap = function() {
@@ -66,7 +62,7 @@
          //И если на него делали ссылки, что бы они остались актуальными
          
       this.els.lapsList.innerHTML = '';
-      
+       
       return this;
    }
    
@@ -83,28 +79,34 @@
       this.s = date.getUTCSeconds();
       this.ms = date.getUTCMilliseconds();
       
-      this.h = allMs - (this.m * 60 * 1000) - (this.s * 1000) - this.ms;
-      this.h = Math.floor(this.h / (60 * 60 * 1000) );
+      this.h = allMs - (this.m*60*1000) - (this.s*1000) - this.ms;
+      this.h = Math.floor(this.h / (60*60*1000) );
    }
    
    fn._initEvents = function() {
       this.els.start.addEventListener('click', () => {
-         if (!this._disable) this.start();
+         if (this._disable) return;
+         
+         this.start();
       });
       
       this.els.stop.addEventListener('click', () => {
-         if (!this._disable) {
-            this.lap();
-            this.stop();
-         }
+         if (this._disable) return;
+         
+         this.lap();
+         this.stop();
       });
       
       this.els.lap.addEventListener('click', () => {
-         if (!this._disable) this.lap();
+         if (this._disable) return;
+         
+         this.lap();
       });
       
       this.els.reset.addEventListener('click', () => {
-         if (!this._disable) this.reset();
+         if (this._disable) return;
+         
+         this.reset();
       });
       
       document.addEventListener('keyup', (event) => {

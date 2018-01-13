@@ -3,8 +3,6 @@
    
    function Timer() {
       ITimerBase.apply(this, arguments);
-      
-      console.log('Timer created!');
    }
    
    var fnBase = ITimerBase.prototype;
@@ -45,13 +43,6 @@
       
       return this;
    }
-   
-   fn._stop = function() {
-      if (this._running) return this;
-      fnBase._stop.apply(this, arguments);
-      
-   }
-   
    
    fn.reset = function() {
       fnBase.reset.apply(this, arguments);
