@@ -1,6 +1,4 @@
 # iTimer
 Таймер и секундомер на javascript с возобновлением работы при обновлении страницы
-<<<<<<< HEAD
 
-=======
->>>>>>> 5f54de58b128e6524b5d32824c68f4a03398d9e7
+https://dimagashko.github.io/iTimer/app
