@@ -62,7 +62,7 @@
    }
    
    fn.reset = function() {
-      if (this._running) return 'return';
+      this.stop();
       
       this.h = 0;
       this.m = 0;

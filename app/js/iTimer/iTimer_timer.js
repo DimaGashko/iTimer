@@ -30,13 +30,15 @@
       if (answer === 'return') return this;
       
       
-      
+      this.saveTime();
       return this;
    }
    
    fn.stop = function() {      
       var answer = fnBase.stop.apply(this, arguments);
       if (answer === 'return') return this;
+      
+      this.saveTime();
       
       return this;
    }
@@ -84,38 +86,52 @@
       this.els.root.classList.remove('timer-set');
    }
    
+   fn.saveTime = function() {
+      this.hideSet();
+      this.readSetTime();
+      this.renderTime();
+   }
+   
+   fn.cancelSet = function() {
+      this.hideSet();
+   }
+   
+   fn.editTime = function() {
+      this.stop();
+      this.writeSetTime();
+      this.showSet();
+   }
+   
    fn._initEvents = function() {
       this.els.save.addEventListener('click', () => {
-         this.hideSet();
-         this.readSetTime();
-         this.renderTime();
+            this.saveTime();
       });
       
       this.els.cancel.addEventListener('click', () => {
-         this.hideSet();
+         this.cancelSet();
       });
       
       this.els.edit.addEventListener('click', () => {
-         this.stop();
-         this.writeSetTime();
-         this.showSet();
+         this.editTime();
       });
       
-      /*this.els.start.addEventListener('click', () => {
-         if (!this._disable) this.start();
+      this.els.start.addEventListener('click', () => {
+         if (this._disable) return;
+         this.start();
       });
       
       this.els.stop.addEventListener('click', () => {
-         if (!this._disable) this.stop();
-      });
-      
-      this.els.lap.addEventListener('click', () => {
-         if (!this._disable) this.lap();
+         if (this._disable) return;
+         this.stop();
       });
       
       this.els.reset.addEventListener('click', () => {
-         if (!this._disable) this.reset();
-      });*/
+         if (this._disable) return;
+         
+         this.reset();
+         this.writeSetTime();
+         this.editTime();
+      });
       
       document.addEventListener('keyup', (event) => {
          if (this._disable) return; 

@@ -59,8 +59,7 @@
    }
    
    fn.reset = function() {
-      var a = fnBase.reset.apply(this, arguments);
-      if (a === 'return') return this;
+      fnBase.reset.apply(this, arguments);
       
       this.timeStart = 0;
       this.startPaused = 0;
