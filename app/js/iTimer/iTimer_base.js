@@ -23,7 +23,7 @@
    }
    
    fn.start = function() {
-      if (this._running) return 'return'; //Ответ, для методов, которые разширяют данный
+      if (this._running) return this;
       this._onRunning();
       
       requestAnimationFrame(function tik() {      
@@ -41,14 +41,14 @@
    }
    
    fn.stop = function() {
-      if (!this._running) return 'return';
+      if (!this._running) return this;
       this._running = false;
       
       return this;
    }
    
    fn._stop = function() {
-      if (this._running) return 'return';
+      if (this._running) return this;
       
       this._ofRunning();
       this.els.start.focus();

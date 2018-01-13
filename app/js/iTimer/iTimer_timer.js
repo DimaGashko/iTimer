@@ -19,24 +19,27 @@
    }
    
    fn._init = function() {
-      var a = fnBase._init.apply(this, arguments);
-      if (a === 'return') return this;
+      if (this._running) return this;
+      fnBase._init.apply(this, arguments);
       
       this.showSet();
    }
    
    fn.start = function() {
-      var answer = fnBase.start.apply(this, arguments);
-      if (answer === 'return') return this;
-      
-      
+      if (this._running) return this;
       this.saveTime();
+      
+      this.allTime = this.getAllTime(); 
+      console.log(this.allTime);
+      
+      fnBase.start.apply(this, arguments);
+      
       return this;
    }
    
    fn.stop = function() {      
-      var answer = fnBase.stop.apply(this, arguments);
-      if (answer === 'return') return this;
+      if (!this._running) return this;
+      fnBase.stop.apply(this, arguments);
       
       this.saveTime();
       
@@ -44,18 +47,14 @@
    }
    
    fn._stop = function() {
-      var answer = fnBase._stop.apply(this, arguments);
-      if (answer === 'return') return this;
-      
+      if (!this._running) return this;
+      fnBase._stop.apply(this, arguments);
       
    }
    
    
    fn.reset = function() {
-      var answer = fnBase.reset.apply(this, arguments);
-      if (answer === 'return') return this;
-      
-      
+      fnBase.reset.apply(this, arguments);
       
       return this;
    }
@@ -64,11 +63,18 @@
       
    }
    
+   fn.getAllTime = function() {
+      return this.h*60*60*1000 
+         + this.m*60*1000 
+         + this.s*1000 
+         + this.ms;
+   }
+   
    fn.readSetTime = function() {
-      this.h = this.els.set.h.value;
-      this.m = this.els.set.m.value;
-      this.s = this.els.set.s.value;
-      this.ms = this.els.set.ms.value;
+      this.h = +this.els.set.h.value;
+      this.m = +this.els.set.m.value;
+      this.s = +this.els.set.s.value;
+      this.ms = +this.els.set.ms.value;
    }
    
    fn.writeSetTime = function() {
@@ -137,7 +143,10 @@
          if (this._disable) return; 
          
          switch (event.keyCode) {
-            
+            case this.KEYS.cancel: 
+               this.cancelSet();
+               break;
+               
             /*case this.KEYS.start: 
                event.preventDefault();
                this.toggleStart();
@@ -194,7 +203,7 @@
    fn._createParametrs = function() {
       fnBase._createParametrs.apply(this, arguments);
       
-      
+      this.allTime = 0 //Оставшееся время в миллисекундахж
    }
    
    fn.iTimerType = 'timer';
@@ -202,6 +211,7 @@
    fn.KEYS = {
       start: 32,
       reset: 82,
+      cancel: 27,
    }
    
    fn._tmpls = {
