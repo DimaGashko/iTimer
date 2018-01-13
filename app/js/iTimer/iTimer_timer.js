@@ -26,9 +26,13 @@
    fn.start = function() {
       if (this._running) return this;
       this.saveTime();
-      
-      this.allTime = this.getAllTime(); 
-      console.log(this.allTime);
+     
+      if (this.allTime === 0) {
+         this.editTime();
+         return;
+         
+      };
+      this.startTime += Date.now() - this.pausedStart;
       
       fnBase.start.apply(this, arguments);
       
@@ -39,7 +43,8 @@
       if (!this._running) return this;
       fnBase.stop.apply(this, arguments);
       
-      this.saveTime();
+      this.pausedStart = Date.now();
+      this.writeSetTime();
       
       return this;
    }
@@ -47,15 +52,43 @@
    fn.reset = function() {
       fnBase.reset.apply(this, arguments);
       
+      this.startTime = 0;
+      this.allTime = 0;
+      
       return this;
    }
    
-   fn.updateTime = function() {
+   fn.updateTime = function() {      
+      var allMs = this.allTime - (Date.now() - this.startTime)
       
+      if (allMs <= 0) {
+         this.end();
+         return;
+      }
+      
+      var date = new Date(allMs);
+      
+      this.m = date.getUTCMinutes();
+      this.s = date.getUTCSeconds();
+      this.ms = date.getUTCMilliseconds();
+      
+      this.h = allMs - (this.m*60*1000) - (this.s*1000) - this.ms;
+      this.h = Math.floor(this.h / (60*60*1000) );
    }
    
-   fn.getAllTime = function() {
-      return this.h*60*60*1000 
+   fn.end = function() {
+      this.stop();
+      this.reset();
+      this.renderTime();
+      
+      setTimeout(() => {
+         alert('End!');
+         this.editTime();
+      }, 50);
+   }
+   
+   fn.updateAllTime = function() {
+      this.allTime = this.h*60*60*1000 
          + this.m*60*1000 
          + this.s*1000 
          + this.ms;
@@ -87,6 +120,7 @@
       this.hideSet();
       this.readSetTime();
       this.renderTime();
+      this.updateAllTime(); 
    }
    
    fn.cancelSet = function() {
@@ -95,6 +129,7 @@
    
    fn.editTime = function() {
       this.stop();
+      this.updateAllTime();
       this.writeSetTime();
       this.showSet();
    }
@@ -238,7 +273,9 @@
    fn._createParametrs = function() {
       fnBase._createParametrs.apply(this, arguments);
       
-      this.allTime = 0 //Оставшееся время в миллисекундахж
+      this.allTime = 0; //Оставшееся время в миллисекундах
+      this.startTime = 0;
+      this.pausedStart = 0;
    }
    
    fn.KEYS = {

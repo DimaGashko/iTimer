@@ -47,10 +47,10 @@ html
                      .iTimer__time.stopwatch__time 0:00:00.000
                         
                      .iTimer__controls_container 
-                           button.iTimer__control.stopwatch__reset Сброс (Alt + R)
-                           button.iTimer__control.stopwatch__start Старт (Пробел)
-                           button.iTimer__control.stopwatch__lap Lap (Alt + L)
-                           button.iTimer__control.stopwatch__stop Стоп (Пробел)                     
+                           button.iTimer__control.stopwatch__reset(title="Alt + R") Сброс
+                           button.iTimer__control.stopwatch__start(title="Пробел") Старт
+                           button.iTimer__control.stopwatch__lap(title="Alt + L ") Lap
+                           button.iTimer__control.stopwatch__stop(title="Пробел") Стоп                     
                      
                      ul.stopwatch__lapslist
                   
@@ -72,9 +72,9 @@ html
                            button.timer__setcontrol.timer__edit(title="Установить время (Alt + E)"): i.icon &#xe802;
                      
                      .iTimer__controls_container
-                        button.iTimer__control.timer__reset Сброс (Alt + R)
-                        button.iTimer__control.timer__start Старт (Пробел)
-                        button.iTimer__control.timer__stop Стоп (Пробел)
+                        button.iTimer__control.timer__reset(title="Alt + R") Сброс
+                        button.iTimer__control.timer__start(title="Пробел") Старт
+                        button.iTimer__control.timer__stop(title="Пробел") Стоп
                      
                      .iTimer__templatesContainer
                         //button.iTimer__newtemplate
