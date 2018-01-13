@@ -63,7 +63,7 @@
    });
    
    function selectType(type) {
-      var prevType = localStorage.iTimerType;
+      var prevType = localStorage.iTimerType || 'timer';
       
       els.iTimer.classList.remove(`iTimer-${prevType}`);
       els.iTimer.classList.add(`iTimer-${type}`);
