@@ -26,12 +26,12 @@
    fn.start = function() {
       if (this._running) return this;
       this.saveTime();
-     
-      if (this.allTime === 0) {
+      
+      if (this.allTime <= 0) {
          this.editTime();
          return;
-         
-      };
+      }
+      
       this.startTime += Date.now() - this.pausedStart;
       
       fnBase.start.apply(this, arguments);
@@ -44,16 +44,6 @@
       fnBase.stop.apply(this, arguments);
       
       this.pausedStart = Date.now();
-      this.writeSetTime();
-      
-      return this;
-   }
-   
-   fn.reset = function() {
-      fnBase.reset.apply(this, arguments);
-      
-      this.startTime = 0;
-      this.allTime = 0;
       
       return this;
    }
@@ -83,8 +73,18 @@
       
       setTimeout(() => {
          alert('End!');
-         this.editTime();
+         this.showSet();
       }, 50);
+   }
+   
+   fn.reset = function() {
+      fnBase.reset.apply(this, arguments);
+      
+      this.startTime = 0;
+      this.pausedStart= 0;
+      this.allTime = 0;
+      
+      return this;
    }
    
    fn.updateAllTime = function() {
@@ -117,6 +117,7 @@
    }
    
    fn.saveTime = function() {
+      this.reset();
       this.hideSet();
       this.readSetTime();
       this.renderTime();
@@ -129,7 +130,6 @@
    
    fn.editTime = function() {
       this.stop();
-      this.updateAllTime();
       this.writeSetTime();
       this.showSet();
    }
