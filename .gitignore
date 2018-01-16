@@ -1,5 +1,6 @@
 dist/
 app/css/main.css
+app/index.html
 
 node_modules/
 package-lock.json
